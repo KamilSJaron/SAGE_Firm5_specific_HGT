@@ -1,4 +1,16 @@
-data
-figures
+# Extension to not take into account when synchronization between local server and remote server
+
+project/autre
+
+
+# Avoid PDF, PPT
+###########
 *.pdf
+*.pptx
+
+
+# Avoir DS_Store which are created by Mac
+#########################################
 .DS_Store
+.DS_Store?
+.Trashes
