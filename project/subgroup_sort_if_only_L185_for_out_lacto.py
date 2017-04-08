@@ -41,11 +41,12 @@ set3=open("set3.txt","w") #Bumble and Apis set
 set4=open("set4.txt","w") #Bumble,Apis and Out_lacto set
 
 for line in ortho_tab:
-    b_b=False
-    b_p=False
-    a_m=False
-    o_l=False
+    b_b=False #Bumble bohemicus
+    b_p=False #Bumble pascuorum
+    a_m=False #Apis melifera
+    o_l=False #outgroup lactobacillus sp. from honey gut
     o_g=False
+    Lb185=False
     tmp=line.split("\t")
     for tmp_seq in tmp:
         seqtmp=tmp_seq.split("|")[0]
@@ -58,7 +59,10 @@ for line in ortho_tab:
             b_b=True
         elif seqtmp in A_melifera:
             a_m=True
-        elif seqtmp in Out_lacto:
+        elif seqtmp=='L185': #because only considerate this strain fro the Lactobacillus group !=yoghurt
+            Lb185=True
+            o_l=True
+        elif seqtmp in Out_lacto: 
             o_l=True
     if not o_g:
         if b_b and b_p:
@@ -66,7 +70,7 @@ for line in ortho_tab:
                 set1.write(line)
             elif a_m and not o_l:
                 set3.write(line)
-            else:
+            elif Lb185:
                 set4.write(line)
         elif a_m and not o_l and not b_b and not b_p:
             set2.write(line)
