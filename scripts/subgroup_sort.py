@@ -11,7 +11,7 @@ Subgroup considered:Bombus sp. & Apis sp. & Apis/Bombus sp. &  Apis/Bombus/Out_l
 import os
 
 ###set different possible species
-Ortho_tab = open("Data/Genefamilies_all.txt",'r')
+Ortho_tab = open("data/Genefamilies_all.txt",'r')
 Ortho_tab.readline()
 
 species_list=[]
@@ -32,7 +32,7 @@ A_melifera=['F259','F260','F261','F262','F263']
 Out_lacto=['JF72','JF73','JF74','JF75','JF76','JG29','JG30','L183','L184', 'L185', 'L186']
 Outgroup=['LA14', 'LA2', 'LDB', 'LGAS', 'LHV','LJP', 'WANG']
 #####loop writing the correct set/subgroup
-Ortho_tab=open("Data/Genefamilies_all.txt",'r')
+Ortho_tab=open("data/Genefamilies_all.txt",'r')
 Bumble_bees_f=open("Bumble_bees.txt",'w') #Bumble set
 Honey_bees_f=open("Honey_bees.txt","w") #Apis set
 Bumble_Honey_bees_f=open("Bumble_Honey_bees.txt","w") #Bumble and Apis set
