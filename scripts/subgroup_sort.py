@@ -26,11 +26,11 @@ print(set(species_list))
 
 #####create different subgroup
 #'JF72':Lactobacillus apis ,'JF73':Lactobacillus helsingborgensis,'JF74':Lactobacillus melliventris,'JF75':Lactobacillus kimbladii,'JF76':Lactobacillus kullabergensis,'JG29':Lactobacillus mellis,'JG30':Lactobacillus mellifer,'L183':L. helsingborgensis,'L184':L melliventris, 'L185': L apis, 'L186': L Kullabergensis, 'LA14': Lactobacillus acidophilus (mammalian commensale/yoghurt), 'LA2':Lactobacillus amylovorus (pig) , 'LDB': L. delbrueckii (yoghurt), 'LGAS':Lactobacillus gasseri (Prebiotic/probiotic), 'LHV': Lactobacillus helveticus (cheese process),'LJP': Lactobacillus johnsonii (probiot/prebiot), 'WANG': L kefiranofaciens (pro/prebiot/kefir)
-B_pascuorum=['F225','F230', 'F233', 'F234','F236','F237']
+B_pascuorum=['F225','F230','F233','F234','F236','F237']
 B_bohemicus=['F228', 'F245','F246','F247']
 A_melifera=['F259','F260','F261','F262','F263']
-Out_lacto=['JF72','JF73','JF74','JF75','JF76','JG29','JG30','L183','L184', 'L185', 'L186']
-Outgroup=['LA14', 'LA2', 'LDB', 'LGAS', 'LHV','LJP', 'WANG']
+Outgroup_wo_yogurt=['JF72','JF73','JF74','JF75','JF76','JG29','JG30','L183','L184','L185','L186']
+Outgroup_w_yogurt=['LA14','LA2','LDB','LGAS','LHV','LJP','WANG']
 #####loop writing the correct set/subgroup
 Ortho_tab=open("data/Genefamilies_all.txt",'r')
 Bumble_bees_f=open("Bumble_bees.txt",'w') #Bumble set
@@ -42,8 +42,8 @@ for line in Ortho_tab:
     B_bohemicus_TF=False
     B_pascuorum_TF=False
     A_melifera_TF=False
-    Out_lacto_TF=False
-    Outgroup_TF=False
+    Outgroup_wo_yogurt_TF=False
+    Outgroup_w_yogurtTF=False
     split_line_bytab=line.split("\t")
     for obj in split_line_bytab:
         strains=obj.split("|")[0]
