@@ -6,7 +6,7 @@ Created on Sat Apr 15 15:14:04 2017
 
 Script which test whether all gene families are sorted in different files and allows to know how many gene families are present in each group.
 """
-Ortho_tab=open("data/Genefamilies_all.txt",'r')
+Ortho_tab=open("data/GeneFamilies.txt",'r')
 Bumble_bees_f=open("data/sort_group/Bumble_bees.txt",'r') #Bumble set
 Honey_bees_f=open("data/sort_group/Honey_bees.txt","r") #Apis set
 Bumble_Honey_bees_f=open("data/sort_group/Bumble_Honey_bees.txt","r") #Bumble and Apis set

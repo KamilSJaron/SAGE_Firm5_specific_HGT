@@ -17,11 +17,11 @@ A_mellifera=['JF72','JF73','JG30','JF74','JF75','JF76','F259','F260','F261','F26
 Honey=A_mellifera
 Outgroup=['JG29','LA14','LA2','LDB','LGAS','LHV','LJP','WANG']
 #####loop writing the correct set/subgroup
-Ortho_tab=open("data/Genefamilies_all.txt",'r')
-Bumble_bees_f=open("Bumble_bees.txt",'w') #Bumble set
-Honey_bees_f=open("Honey_bees.txt","w") #Apis set
-Bumble_Honey_bees_f=open("Bumble_Honey_bees.txt","w") #Bumble and Apis set
-Outgroup_f=open("Outgroup.txt","w")
+Ortho_tab=open("data/GeneFamilies.txt",'r')
+Bumble_bees_f=open("data/sort_group/Bumble_bees.txt",'w') #Bumble set
+Honey_bees_f=open("data/sort_group/Honey_bees.txt","w") #Apis set
+Bumble_Honey_bees_f=open("data/sort_group/Bumble_Honey_bees.txt","w") #Bumble and Apis set
+Outgroup_f=open("data/sort_group/Outgroup.txt","w")
 
 def are_all_in_line(group_bee,line,threshold):
     threshold_limit=1
