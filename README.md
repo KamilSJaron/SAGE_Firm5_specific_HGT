@@ -38,7 +38,7 @@ This folder contains all data we are using as input or output.
 
 Genefamilies_all.txt: input
 format: 'Gene_family_1	F225|1578.157.peg.1085	F225|1578.157.peg.957 ...'
->> Gene_family '\t' reference_genome|protein_ID '\t' reference_genome|protein_ID ...
+'Gene_family '\t' reference_genome|protein_ID '\t' reference_genome|protein_ID ...'
 Each line corresponds to a Gene_family. For each Gene_family, there are reference_genome|protein_ID for each protein which takes part to the corresponding Gene_family group.
 
 
