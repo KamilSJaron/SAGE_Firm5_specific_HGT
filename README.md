@@ -34,7 +34,8 @@ proteinseqextract.py:
 inputs: outputs of subgroup_sort.py (Bumble_bees.txt, Honey_bees.txt, Bumble_Honey_bees.txt or Outgroup.txt), all_proteins.fasta (of mls_2016/blast folder) 
 outputs: folder of Bumble_bees, Honey_bees, Bumble_Honey_bees and Outgroup - each folder contains .fasta files of gene families - a file concerns one gene family and contains all reference_genome|protein_ID and their sequence in fasta format
 
-
+#test subfolder
+The script subgroup_sort_test.py checks if all the different gene families (present in Genefamilies_all.txt) are sorted in the different filies according to the subgroup_sort.py. The test script allows also to determine the number of gene families present in each considered subgroups.
 
 ## data
 This folder contains all data we are using as input or output.
@@ -44,5 +45,7 @@ format: 'Gene_family_1	F225|1578.157.peg.1085	F225|1578.157.peg.957 ...'
 'Gene_family '\t' reference_genome|protein_ID '\t' reference_genome|protein_ID ...'
 Each line corresponds to a Gene_family. For each Gene_family, there are reference_genome|protein_ID for each protein which takes part to the corresponding Gene_family group.
 
-
+#sort_group subfolder
+Contain files according to the subgroup_sort.py script. 
+The different files have the same structure as Genefamilies_all.txt and represent the considered subgroups: Bumble, Honey and Bumble&honey. 
 
