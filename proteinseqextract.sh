@@ -11,4 +11,4 @@
 #BSUB -u virginie.ricci@unil.ch
 
 
-python3 proteinseqextract.py
+python3 scripts/proteinseqextract.py

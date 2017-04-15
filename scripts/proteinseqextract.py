@@ -8,7 +8,7 @@ def extractprotseq(bee_group, bee_folder, all_proteins_faa):
 	bee_group_f=open(bee_group, 'r')
 	all_prot_f=open(all_proteins_faa, 'r')
 
-	os.chdir(bee_folder)
+	#os.chdir(bee_folder)
 
 	genome_protseq={} #dico of each ref_genome|protein_ID and its amino acid sequence
 	for seq_record in SeqIO.parse(all_prot_f, 'fasta'):
@@ -32,6 +32,14 @@ def extractprotseq(bee_group, bee_folder, all_proteins_faa):
 				sequences.append(record)
 			else:
 				print('obj not found in all_prot_f', obj)
-		SeqIO.write(sequences, prot_seq_fn, 'fasta')
+		SeqIO.write(sequences, bee_folder+prot_seq_fn, 'fasta')
+		print(bee_group,'-', Gene_family, 'Done.')
 
 
+
+
+extractprotseq(bee_group='data/sort_group/Bumble_bees.txt', bee_folder='data/Bumble_bees_proteins/', all_proteins_faa='/scratch/beegfs/monthly/mls_2016/blast/all_proteins.fasta')
+
+extractprotseq(bee_group='data/sort_group/Honey_bees.txt', bee_folder='data/Honey_bees_proteins/', all_proteins_faa='/scratch/beegfs/monthly/mls_2016/blast/all_proteins.fasta')
+
+extractprotseq(bee_group='data/sort_group/Bumble_Honey_bees.txt', bee_folder='data/Bumble_Honey_bees_proteins/', all_proteins_faa='/scratch/beegfs/monthly/mls_2016/blast/all_proteins.fasta')

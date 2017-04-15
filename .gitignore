@@ -3,14 +3,21 @@
 test
 
 # Avoid PDF, PPT
-###########
+################
 *.pdf
 *.pptx
 
 
-# Avoir DS_Store which are created by Mac
+# Avoid DS_Store which are created by Mac
 #########################################
 .DS_Store
 .DS_Store?
 .Trashes
 .Rhistory
+
+
+
+# Avoid .err and .out from submission of .sh scripts
+####################################################
+*.err
+*.out
