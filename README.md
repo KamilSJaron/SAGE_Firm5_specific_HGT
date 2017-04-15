@@ -31,7 +31,7 @@ Each output contains gene families of its bee group if 80% of all strains are pr
 It means that for each gene family 'line' of Genefamilies_all.txt, if at least 80% of all strains of a bee group are present, the 'line' is stored into its corresponding bee group output file.
 
 proteinseqextract.py:
-input: ouputs of subgroup_sort.py (Bumble_bees.txt, Honey_bees.txt, Bumble_Honey_bees.txt or Outgroup.txt) 
+inputs: ouputs of subgroup_sort.py (Bumble_bees.txt, Honey_bees.txt, Bumble_Honey_bees.txt or Outgroup.txt), all_proteins.fasta (of mls_2016/blast folder) 
 outputs: folder of Bumble_bees, Honey_bees, Bumble_Honey_bees and Outgroup - each folder contains .fasta files of gene families - a file concerns one gene family and contains all reference_genome|protein_ID and their sequence in fasta format
 
 
