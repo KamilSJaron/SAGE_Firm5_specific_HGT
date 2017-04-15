@@ -24,12 +24,15 @@ Each bash script has exactly the same name as its corresponding script in script
 ## scripts
 This folder contains all scripts we created for data analysis.
 
-subgroup_sort.py :
+subgroup_sort.py:
 input: Genefamilies_all.txt
-ouputs: Bumble_bees_f, Honey_bees_f, Bumble_Honey_bees_f, Outgroup_f
+ouputs: Bumble_bees.txt, Honey_bees.txt, Bumble_Honey_bees.txt, Outgroup.txt
 Each output contains gene families of its bee group if 80% of all strains are present.
 It means that for each gene family 'line' of Genefamilies_all.txt, if at least 80% of all strains of a bee group are present, the 'line' is stored into its corresponding bee group output file.
 
+proteinseqextract.py:
+input: ouputs of subgroup_sort.py (Bumble_bees.txt, Honey_bees.txt, Bumble_Honey_bees.txt or Outgroup.txt) 
+outputs: folder of Bumble_bees, Honey_bees, Bumble_Honey_bees and Outgroup - each folder contains .fasta files of gene families - a file concerns one gene family and contains all reference_genome|protein_ID and their sequence in fasta format
 
 
 
