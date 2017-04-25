@@ -1,0 +1,10 @@
+Gene_family_1631.fasta
+Gene_family_1670.fasta
+Gene_family_1674.fasta
+Gene_family_1675.fasta
+Gene_family_1678.fasta
+Gene_family_1679.fasta
+Gene_family_1685.fasta
+Gene_family_1686.fasta
+Gene_family_1689.fasta
+Gene_family_1757.fasta

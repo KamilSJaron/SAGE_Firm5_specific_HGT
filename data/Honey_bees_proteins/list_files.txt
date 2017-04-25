@@ -1,0 +1,14 @@
+Gene_family_1168.fasta
+Gene_family_1364.fasta
+Gene_family_1378.fasta
+Gene_family_1380.fasta
+Gene_family_1385.fasta
+Gene_family_1393.fasta
+Gene_family_1394.fasta
+Gene_family_1396.fasta
+Gene_family_1399.fasta
+Gene_family_1400.fasta
+Gene_family_1401.fasta
+Gene_family_1422.fasta
+Gene_family_1428.fasta
+Gene_family_1458.fasta
