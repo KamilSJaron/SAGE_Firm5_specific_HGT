@@ -42,8 +42,12 @@ This folder contains all scripts we created for data analysis.
 - inputs: outputs of `blast_gene_families.sh` in `data/blast` subfolders and different thresholds for trimming the different hits - each `.out` file corresponds to a gene family and contains the hits from `blast_gene_families.sh`.
 - outputs will contain the different hits according to the thresholds (and excluding hits from Lactobacillus sp.). The structure of the `_parsed.out` files is columns with Query_ID, Subject_titles, %_Identity, Alignment_length, evalue, bit_score.
 
-`blast_hits_extract.py`:
+`blast_hits_extract.sh`:
 - script to run `blast_hits_extract.py` function on the whole files, present in `data/blast` folder.
+
+`extract_taxonomy_hierarchy.py`:
+- Inputs: output of the function `blast_hits_extract.py` - the script extract the classifical hierarchy of the strain from genebank.
+- Outputs: TO CHANGE, print the hierarchical taxonomy. Maybe to consider the integration of this script in the function `blast_hits_extract.py'.
 
 ### test subfolder
 
