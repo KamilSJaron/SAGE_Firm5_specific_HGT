@@ -31,7 +31,7 @@ This folder contains all scripts we created for data analysis.
 - Generalized function to perform blastp
 - This function is associated with `function_blast.sh`
 - Blastp will search for matches in RefSeq database
-- outputs will contain 7 columns
+- outputs will contain 7 columns: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject title, subject titles
 
 `function_blast.sh`:
 - inputs: outputs of `proteinseqextract.py`in `data` subfolders (Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins) - each `.fasta` file corresponds to a gene family and contains all orthologous reference_genome|protein_ID and their sequence
@@ -89,4 +89,4 @@ Each fasta file corresponds to one Gene_family. It comprises protein sequences o
 
 This folder contains subfolders: Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins
 Each folder contains `.out` output files of `blast_gene_families.sh` and `function_blast.sh` scripts.
-Each file corresponds to blast results of one Gene_family (blast on protein sequences of all orthologous genes). It contains 7 columns summarizing blast hits and the taxonomic name of the strain (need more details).
+Each file corresponds to blast results of one Gene_family (blast on protein sequences of all orthologous genes). It contains 7 columns summarizing blast hits and the taxonomic name of the strain (columns: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject title, subject titles).
