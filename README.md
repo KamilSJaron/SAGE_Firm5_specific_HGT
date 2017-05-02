@@ -24,20 +24,24 @@ This folder contains all scripts we created for data analysis.
 
 `proteinseqextract.py`:
 - inputs: outputs of `subgroup_sort.py` in `data/sort_group` (`Bumble_bees.txt`, `Honey_bees.txt`, `Bumble_Honey_bees.txt` or `Outgroup.txt`), `all_proteins.fasta` (of `mls_2016/blast` folder)
-- outputs: in data: folders of Bumble_bees, Honey_bees, Bumble_Honey_bees and Outgroup - each folder contains `.fasta` files of gene families - a file concerns one gene family and contains all reference_genome|protein_ID and their sequence in fasta format
+- outputs: in `data`: folders of Bumble_bees_proteins, Honey_bees_proteins, Bumble_Honey_bees_proteins
+- Each folder contains `.fasta` files of gene families - a file concerns one gene family and contains all reference_genome|protein_ID and their sequence in fasta format
 
 `blast_gene_families.sh`:
-- input: one output of `proteinseqextract.py` in `data` subfolders (Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins)
-- output: in `data/blast`: file containing the blast results for each sequences of a gene family.
+- Generalized function to perform blastp
+- This function is associated with `function_blast.sh`
+- Blastp will search for matches in RefSeq database
+- outputs will contain 7 columns
 
 `function_blast.sh`:
-- inputs: all outputs of `proteinseqextract.py`in `data` subfolders (Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins).
-- outputs: in  `data/blast`: files containing the blast results for each sequences of the different gene families present in each subgroup (Bumble, Bumble&Honey, Honey).
+- inputs: outputs of `proteinseqextract.py`in `data` subfolders (Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins) - each `.fasta` file corresponds to a gene family and contains all orthologous reference_genome|protein_ID and their sequence
+- outputs: in  `data/blast`: folders of Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins
+- Each folder contains resulting blast files (`.out` format) - each file concerns blast results for every sequences of their corresponding gene family
+
 
 ### test subfolder
 
 The script `subgroup_sort_test.py` checks if all the different gene families (present in `Genefamilies_all.txt`) are sorted in the different filies according to the `subgroup_sort.py`. The test script allows also to determine the number of gene families present in each considered subgroups.
-
 
 
 ### data
@@ -59,25 +63,30 @@ Gene_family_1	F225|1578.157.peg.1085	F225|1578.157.peg.957 ...
 
 ### sort_group subfolder
 
-Contain files (`.txt`) according to the `subgroup_sort.py` script.
+This folder contain files (`.txt`) according to the `subgroup_sort.py` script.
 The different files have the same structure as GeneFamilies.txt and represent the considered subgroups: Bumble_bees, Honey_bees and Bumble_Honey_bees. There is also Outgroup.
+
 
 ### Honey_bees_proteins subfolder
 
 This folder contains outputs (`.fasta`) of `proteinseqextract.py` script.
 Each fasta file corresponds to one Gene_family. It comprises protein sequences of all orthologous genes of the Gene_family.
 
+
 ### Bumble_bees_proteins subfolder
 
 This folder contains outputs (`.fasta`) of `proteinseqextract.py` script.
 Each fasta file corresponds to one Gene_family. It comprises protein sequences of all orthologous genes of the Gene_family.
+
 
 ### Bumble_Honey_bees_proteins subfolder
 
 This folder contains outputs (`.fasta`) of `proteinseqextract.py` script.
 Each fasta file corresponds to one Gene_family. It comprises protein sequences of all orthologous genes of the Gene_family.
 
-### Blast subfolder
-One blast folder is present in each subgroup folder (Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins).
-Those folders contains output files of `function_blast.sh` script.
-Each file corresponds to the blast results of one Gene_family, containing mainly the blast hits and the taxonomic name of the strain (need more details).
+
+### blast subfolder
+
+This folder contains subfolders: Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins
+Each folder contains `.out` output files of `blast_gene_families.sh` and `function_blast.sh` scripts.
+Each file corresponds to blast results of one Gene_family (blast on protein sequences of all orthologous genes). It contains 7 columns summarizing blast hits and the taxonomic name of the strain (need more details).
