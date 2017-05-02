@@ -25,7 +25,7 @@ def parsed_blast_hits(input_file, bee_folder, threshold_alignment_length, thresh
                     if float(tmp_split_line[10]) <= float(threshold_eval):
                         if float(tmp_split_line[11]) >= float(threshold_bitscore):
                             if 'Lactobacillus' not in tmp_split_line[13]:
-                                bee_file_out.write('%s\t%s\t%s\t%s\t%s\t%s\n'%(tmp_split_line[0], tmp_split_line[13].split['\n'][0], tmp_split_line[2], tmp_split_line[3], tmp_split_line[10], tmp_split_line[11]))
+                                bee_file_out.write('%s\t%s\t%s\t%s\t%s\t%s\n'%(tmp_split_line[0], tmp_split_line[13].replace('.\n',''), tmp_split_line[2], tmp_split_line[3], tmp_split_line[10], tmp_split_line[11]))
     
     bee_file_out.close()
     bee_file.close
