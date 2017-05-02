@@ -38,6 +38,9 @@ This folder contains all scripts we created for data analysis.
 - outputs: in  `data/blast`: folders of Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins
 - Each folder contains resulting blast files (`.out` format) - each file concerns blast results for every sequences of their corresponding gene family
 
+`blast_hits_extract.py`:
+- inputs: outputs of `blast_gene_families.sh` in `data/blast` subfolders and different thresholds for trimming the different hits - each `.out` file corresponds to a gene family and contains the hits from `blast_gene_families.sh`.
+- outputs will contain the different hits according to the thresholds (and excluding hits from Lactobacillus sp.). The structure of the `_parsed.out` files is columns with Query_ID, Subject_titles, %_Identity, Alignment_length, evalue, bit_score. 
 
 ### test subfolder
 
