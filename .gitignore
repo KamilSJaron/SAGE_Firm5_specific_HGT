@@ -1,6 +1,8 @@
 # Extension to not take into account when synchronization between local server and remote server
 
 test
+logs
+data
 
 # Avoid PDF, PPT
 ################
@@ -17,7 +19,6 @@ test
 
 
 
-# Avoid .err and .out from submission of .sh scripts
+# Avoid .out from submission of .sh scripts
 ####################################################
 *.err
-*.out
