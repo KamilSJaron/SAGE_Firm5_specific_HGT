@@ -4,13 +4,13 @@ Created on Tue May  2 14:10:31 2017
 
 @author: Claivaz&Ricci
 """
+import sys
 
-import os
-import numpy as np
-
-os.getcwd()
-os.chdir('./Desktop')
-
+input_file=sys.argv[1]
+threshold_alignment_length=sys.argv[2]
+threshold_ID=sys.argv[3]
+threshold_eval=sys.argv[4]
+threshold_bitscore=sys.argv[5]
 
 def keep_hits(input_file, threshold_alignment_length, threshold_ID, threshold_eval, threshold_bitscore):
     bee_file=open(input_file, 'r')
@@ -29,5 +29,5 @@ def keep_hits(input_file, threshold_alignment_length, threshold_ID, threshold_ev
     bee_file_out.close()
     bee_file.close
         
-keep_hits('./Honey_bees_proteins/Gene_family_1168.out', 0.8, 60, 0.00005, 0)        
+keep_hits(input_file, threshold_alignment_length, threshold_ID, threshold_eval, threshold_biscore)        
         
