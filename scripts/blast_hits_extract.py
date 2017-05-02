@@ -3,6 +3,8 @@
 Created on Tue May  2 14:10:31 2017
 
 @author: Claivaz&Ricci
+
+Script which filter the different hits from the blast output in function of different thresholds and the abscence of Lactobacillus in the strain subject
 """
 import sys
 
