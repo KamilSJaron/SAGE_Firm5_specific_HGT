@@ -25,29 +25,31 @@ This folder contains all scripts we created for data analysis.
 `proteinseqextract.py`:
 - inputs: outputs of `subgroup_sort.py` in `data/sort_group` (`Bumble_bees.txt`, `Honey_bees.txt`, `Bumble_Honey_bees.txt` or `Outgroup.txt`), `all_proteins.fasta` (of `mls_2016/blast` folder)
 - outputs: in `data`: folders of Bumble_bees_proteins, Honey_bees_proteins, Bumble_Honey_bees_proteins
-- Each folder contains `.fasta` files of gene families - a file concerns one gene family and contains all reference_genome|protein_ID and their sequence in fasta format
+- Each folder contains `.fasta` files of gene families - a file concerns one gene family and contains all reference_genome|protein_ID and their sequence in fasta format.
 
 `blast_gene_families.sh`:
 - Generalized function to perform blastp
 - This function is associated with `function_blast.sh`
-- Blastp will search for matches in RefSeq database
+- Blastp will search for matches in RefSeq database.
 - outputs will contain 14 columns: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject title, subject titles
 
 `function_blast.sh`:
 - inputs: outputs of `proteinseqextract.py`in `data` subfolders (Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins) - each `.fasta` file corresponds to a gene family and contains all orthologous reference_genome|protein_ID and their sequence
 - outputs: in  `data/blast`: folders of Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins
-- Each folder contains resulting blast files (`.out` format) - each file concerns blast results for every sequences of their corresponding gene family
+- Each folder contains resulting blast files (`.out` format) - each file concerns blast results for every sequences of their corresponding gene family.
 
 `blast_hits_extract.py`:
 - inputs: outputs of `blast_gene_families.sh` in `data/blast` subfolders and different thresholds for trimming the different hits - each `.out` file corresponds to a gene family and contains the hits from `blast_gene_families.sh`.
-- outputs will contain the different hits according to the thresholds (and excluding hits from Lactobacillus sp.). The structure of the `_parsed.out` files is columns with Query_ID, Subject_titles, %_Identity, Alignment_length, evalue, bit_score.
+- outputs will contain the different hits according to the thresholds (and excluding hits from Lactobacillus sp.). The structure of the `_parsed.out` files is columns with Query_ID, Subject_titles, %_Identity, Alignment_length, evalue, bit_score
 
 `blast_hits_extract.sh`:
-- script to run `blast_hits_extract.py` function on the whole files, present in `data/blast` folder.
+- script to run `blast_hits_extract.py` on every files present in `data/blast` folders (Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins)
 
 `extract_taxonomy_hierarchy.py`:
-- Inputs: output of the function `blast_hits_extract.py` - the script extract the classifical hierarchy of the strain from genebank.
-- Outputs: TO CHANGE, print the hierarchical taxonomy. Maybe to consider the integration of this script in the function `blast_hits_extract.py'.
+- inputs: outputs of `blast_hits_extract.py`
+- outputs: TO CHANGE, print the hierarchical taxonomy. Maybe to consider the integration of this script in the function `blast_hits_extract.py'.
+- extraction of classifical hierarchy of the strain from genebank
+
 
 ### test subfolder
 
