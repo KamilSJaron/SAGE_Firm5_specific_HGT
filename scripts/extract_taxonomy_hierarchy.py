@@ -5,10 +5,14 @@ Created on Tue May  9 13:48:02 2017
 @author: Claivaz&Ricci
 """
 
-
-
 import os
 from Bio import Entrez
+
+
+Entrez.email = "virginie.ricci@unil.ch"
+
+
+os.chdir('data/parsed_blast/')
 
 bee_folder=os.listdir() #list: Bumble_bees_proteins, Honey_bees_proteins, Bumble_Honey_bees_proteins
 
@@ -81,6 +85,6 @@ for keys_ID in dict_strain_tax.keys():
     else: #Not found
         dict_distance[keys_ID]=7
     
-    strain_tax.write(keys_ID+'\t'+dict_strain_tax[keys_ID]+'\t'+dict_distance[keys_ID]+'\n')
+    strain_tax.write(keys_ID+'\t'+dict_strain_tax[keys_ID]+'\t'+str(dict_distance[keys_ID])+'\n')
     
 strain_tax.close()
