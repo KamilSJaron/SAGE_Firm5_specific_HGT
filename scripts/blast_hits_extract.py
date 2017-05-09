@@ -6,7 +6,7 @@ Created on Tue May  2 14:10:31 2017
 
 Script which filter the different hits from the blast output in function of different thresholds and the abscence of Lactobacillus in the strain subject
 """
-import sys
+import sys, os
 
 input_file = sys.argv[1]
 bee_folder = sys.argv[2]
