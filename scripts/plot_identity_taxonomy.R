@@ -32,11 +32,13 @@ for (gene_fam in 1:length(bumble_files)){
     prd$predicted <- predict(fit, newdata = prd)
     
     plot(for_model$xvals, for_model$yvals,main=paste0(strsplit(bee_dir[3],'.//',fixed=T)[[1]][2],'\n',strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),ylab='similarity [%]', xlab='taxonomical distance [-]')
-    abline(fit2)
-    lines(prd$xvals, prd$predicted)
+    #abline(fit2)
+    #lines(prd$xvals, prd$predicted)
     
     
-    if(anova(fit, fit2)$Pr[2]<0.05){
+    tmp_pvalue = anova(fit, fit2)$Pr[2]
+    
+    if(all(is.na(tmp_pvalue)!=TRUE,tmp_pvalue<0.05)){
       potential_HGT[i]=bumble_files[gene_fam]
       i=i+1
     }
@@ -68,10 +70,12 @@ for (gene_fam in 1:length(honey_files)){
     prd$predicted <- predict(fit, newdata = prd)
     
     plot(for_model$xvals, for_model$yvals,main=paste0(strsplit(bee_dir[3],'.//',fixed=T)[[1]][2],'\n',strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),ylab='similarity [%]', xlab='taxonomical distance [-]')
-    abline(fit2)
-    lines(prd$xvals, prd$predicted)
+    #abline(fit2)
+    #lines(prd$xvals, prd$predicted)
     
-    if(anova(fit, fit2)$Pr[2]<0.05){
+    tmp_pvalue = anova(fit, fit2)$Pr[2]
+    
+    if(all(is.na(tmp_pvalue)!=TRUE,tmp_pvalue<0.05)){
       potential_HGT[i]=honey_files[gene_fam]
       i=i+1
     }
@@ -104,10 +108,12 @@ for (gene_fam in 1:length(bumble_honey_files)){
     prd$predicted <- predict(fit, newdata = prd)
     
     plot(for_model$xvals, for_model$yvals,main=paste0(strsplit(bee_dir[3],'.//',fixed=T)[[1]][2],'\n',strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),ylab='similarity [%]', xlab='taxonomical distance [-]')
-    abline(fit2)
-    lines(prd$xvals, prd$predicted)
+    #abline(fit2)
+    #lines(prd$xvals, prd$predicted)
     
-    if(anova(fit, fit2)$Pr[2]<0.05){
+    tmp_pvalue = anova(fit, fit2)$Pr[2]
+    
+    if(all(is.na(tmp_pvalue)!=TRUE,tmp_pvalue<0.05)){
       potential_HGT[i]=bumble_honey_files[gene_fam]
       i=i+1
     }
@@ -116,4 +122,4 @@ for (gene_fam in 1:length(bumble_honey_files)){
 
 dev.off()
 
-write.table(potential_HGT)
+write(potential_HGT,file='potential_HGT.txt')
