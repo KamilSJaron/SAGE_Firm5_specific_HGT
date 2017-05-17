@@ -32,8 +32,12 @@ for (gene_fam in 1:length(bumble_files)){
     prd$predicted <- predict(fit, newdata = prd)
     
     plot(for_model$xvals, for_model$yvals,main=paste0(strsplit(bee_dir[3],'.//',fixed=T)[[1]][2],'\n',strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),ylab='similarity [%]', xlab='taxonomical distance [-]')
-    #abline(fit2)
-    #lines(prd$xvals, prd$predicted)
+    
+    if(class(try(abline(fit2),TRUE))!='try-error'){
+      lines(prd$xvals, prd$predicted)
+      abline(fit2)
+    }
+    
     
     
     tmp_pvalue = anova(fit, fit2)$Pr[2]
@@ -70,8 +74,11 @@ for (gene_fam in 1:length(honey_files)){
     prd$predicted <- predict(fit, newdata = prd)
     
     plot(for_model$xvals, for_model$yvals,main=paste0(strsplit(bee_dir[3],'.//',fixed=T)[[1]][2],'\n',strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),ylab='similarity [%]', xlab='taxonomical distance [-]')
-    #abline(fit2)
-    #lines(prd$xvals, prd$predicted)
+    
+    if(class(try(abline(fit2),TRUE))!='try-error'){
+      lines(prd$xvals, prd$predicted)
+      abline(fit2)
+    }
     
     tmp_pvalue = anova(fit, fit2)$Pr[2]
     
@@ -108,8 +115,11 @@ for (gene_fam in 1:length(bumble_honey_files)){
     prd$predicted <- predict(fit, newdata = prd)
     
     plot(for_model$xvals, for_model$yvals,main=paste0(strsplit(bee_dir[3],'.//',fixed=T)[[1]][2],'\n',strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),ylab='similarity [%]', xlab='taxonomical distance [-]')
-    #abline(fit2)
-    #lines(prd$xvals, prd$predicted)
+    
+    if(class(try(abline(fit2),TRUE))!='try-error'){
+      lines(prd$xvals, prd$predicted)
+      abline(fit2)
+    }
     
     tmp_pvalue = anova(fit, fit2)$Pr[2]
     
