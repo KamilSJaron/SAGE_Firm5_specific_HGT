@@ -9,7 +9,6 @@
 #BSUB -M 10000000
 #BSUB –R "rusage[mem=10000]"
 #BSUB -u virginie.ricci@unil.ch
-#BSUB -q dee-long
 
 
 
