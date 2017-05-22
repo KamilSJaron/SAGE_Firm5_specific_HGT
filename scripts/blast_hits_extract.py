@@ -35,6 +35,7 @@ def parsed_blast_hits(input_file, bee_folder, threshold_alignment_length, thresh
             for blast_hit in bee_file_list:
                 bee_file_out.write(blast_hit)
         elif float(threshold_ID_tmp) > 20:
+<<<<<<< HEAD
             bee_file_out.close()
             bee_file.close()
             parsed_blast_hits(input_file = bee_file, bee_folder = bee_folder,
@@ -42,6 +43,9 @@ def parsed_blast_hits(input_file, bee_folder, threshold_alignment_length, thresh
                               threshold_ID = 0.8 * float(threshold_ID_tmp), 
                               threshold_eval = threshold_eval,
                               threshold_bitscore = threshold_bitscore)
+=======
+            parsed_blast_hits(input_file = bee_file, bee_folder = bee_folder, threshold_alignment_length = threshold_alignment_length, threshold_ID = 0.8 * float(threshold_ID_tmp), threshold_eval = threshold_eval, threshold_bitscore = threshold_bitscore)
+>>>>>>> ef3e9d5f30ef38d11624ee298504d6c8fbbf5795
         else:
             for blast_hit in bee_file_list:
                 bee_file_out.write(blast_hit)
