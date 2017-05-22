@@ -5,10 +5,10 @@ This repo is public.
 
 - scripts folder contains all scripts we created for data analysis.
 - data folder contains all data we are using as input or output.
-- test folder contains all testing scripts.
+- test folder contains all testing scripts and testing results.
 
 
-In `SAGE_Firm5_specific_HGT`, There are bash scripts (`.sh`), which are used to `bsub` different scripts which are stored in scripts folder.
+In `SAGE_Firm5_specific_HGT`, there are bash scripts (`.sh`), which are used to `bsub` different scripts which are stored in scripts folder.
 Each bash script has exactly the same name as its corresponding script in scripts folder.
 
 
@@ -37,20 +37,22 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 
 
 `extract_taxonomy_hierarchy.py` (5):
-- inputs: outputs of `blast_hits_extract.py` in `data/_parsedblast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
-- outputs: in  `data/parsed_blast`: `hierarchical_taxonomy.txt`: list of strain IDs and their corresponding hierarchical taxonomy and subjective hierarchical distance (as followed)
+- inputs: outputs of `blast_hits_extract.py` in `data/parsed_blast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
+- outputs: in  `data/parsed_blast`: `hierarchical_taxonomy.txt`: list of strain IDs and their corresponding hierarchical taxonomy and subjective hierarchical taxonomy distance (as followed)
 - Lactobacillus = 1
 - Lactobacillaceae = 2
 - Lactobacillales = 3
 - Bacilli = 4
 - Firmicutes = 5
 - Bacteria = 6
-- None = 7 (which either corresponds to Archae or Eukaryota)
+- None = 7 (which either corresponds to Archae or Eukaryota - contaminations)
 
 
 `plot_identity_taxonomy.R` (6):
 - inputs: in  `data/parsed_blast`: outputs of `blast_hits_extract.py` and `hierarchical_taxonomy.txt`
-
+- outputs: in `data/parsed_blast`: Bumble_taxo_plot.pdf, Honey_taxo_plot.pdf and Bumble_Honey_taxo_plot.pdf in addition to potential_HGT.txt
+- Each `.pdf` file contains all plots (percentage of identity between query and subject against hierachical taxonomy distance) of a bee group. 
+- potential_HGT.txt lists all files of gene family that are taken into account during plotting. 
 
 ### SAGE_Firm5_specific_HGT
 

@@ -279,3 +279,52 @@ PS:
 
 Read file <extract_taxonomy_hierarchy.err> for stderr output of this job.
 
+Sender: LSF System <lsfadmin@cpt181>
+Subject: Job 361892: <extract_taxonomy_hierarchy> in cluster <prdclst> Exited
+
+Job <extract_taxonomy_hierarchy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <8*cpt181>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Mon May 22 13:57:49 2017
+Results reported at Mon May 22 13:57:50 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o extract_taxonomy_hierarchy.out
+#BSUB -e extract_taxonomy_hierarchy.err
+#BSUB -J extract_taxonomy_hierarchy
+#BSUB -n 8
+#BSUB -R "span[ptile=8]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+
+
+python3 ./scripts/extract_taxonomy_hierarchy.py
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :               0.50 sec.
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <extract_taxonomy_hierarchy.err> for stderr output of this job.
+
