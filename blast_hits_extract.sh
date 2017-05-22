@@ -14,7 +14,7 @@ for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; 
 
 	for file in $(cat ./data/blast/$dir/list_files.txt); do
 		mkdir -p data/parsed_blast/$dir
-		python3 scripts/blast_hits_extract.py $file $dir 0.8 0 0.00001 0 
+		python3 scripts/blast_hits_extract.py $file $dir 0.8 50 0.00001 0 
 
 	done
 done

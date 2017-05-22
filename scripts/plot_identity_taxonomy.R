@@ -1,10 +1,11 @@
-'''
-Claivaz, Ricci, 170516
-This  script allows the plotting of the similarity amongst blast hit results in function of the hierarchical 
-taxonomy distance.
-Input: hierarchical_taxonomy.txt, bumble/honey/bumble&honey parsed blast
-output: plots and table containing potential HGT candidates (from the anova test between polynomial and linear model)
-'''
+#!/usr/bin/Rscript
+
+
+# Claivaz, Ricci, 170516
+# This  script allows the plotting of the similarity amongst blast hit results in function of the hierarchical 
+# taxonomy distance.
+# Input: hierarchical_taxonomy.txt, bumble/honey/bumble&honey parsed blast
+# Output: plots and table containing potential HGT candidates (from the anova test between polynomial and linear model)
 
 
 setwd('/scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/parsed_blast')

@@ -252,3 +252,507 @@ PS:
 
 Read file <blast_hits_extract.err> for stderr output of this job.
 
+Sender: LSF System <lsfadmin@cpt129>
+Subject: Job 361424: <blast_hits_extract> in cluster <prdclst> Done
+
+Job <blast_hits_extract> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <8*cpt129>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT> was used as the working directory.
+Started at Mon May 22 11:05:36 2017
+Results reported at Mon May 22 11:06:23 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o blast_hits_extract.out
+#BSUB -e blast_hits_extract.err
+#BSUB -J blast_hits_extract
+#BSUB -n 8
+#BSUB -R "span[ptile=8]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
+
+	for file in $(cat ./data/blast/$dir/list_files.txt); do
+		mkdir -p data/parsed_blast/$dir
+		python3 scripts/blast_hits_extract.py $file $dir 0.8 50 0.00001 0 
+
+	done
+done
+
+
+#input_file, bee_folder, threshold_alignment_length, threshold_ID, threshold_eval, threshold_biscore
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               13.44 sec.
+    Max Memory :             11.25 MB
+    Average Memory :         11.23 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               349 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <blast_hits_extract.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt129>
+Subject: Job 361433: <blast_hits_extract> in cluster <prdclst> Done
+
+Job <blast_hits_extract> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <8*cpt129>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Mon May 22 11:16:21 2017
+Results reported at Mon May 22 11:17:00 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o blast_hits_extract.out
+#BSUB -e blast_hits_extract.err
+#BSUB -J blast_hits_extract
+#BSUB -n 8
+#BSUB -R "span[ptile=8]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
+
+	for file in $(cat ./data/blast/$dir/list_files.txt); do
+		mkdir -p data/parsed_blast/$dir
+		python3 scripts/blast_hits_extract.py $file $dir 0.8 50 0.00001 0 
+
+	done
+done
+
+
+#input_file, bee_folder, threshold_alignment_length, threshold_ID, threshold_eval, threshold_biscore
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               16.17 sec.
+    Max Memory :             11.24 MB
+    Average Memory :         11.19 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               349 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <blast_hits_extract.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt129>
+Subject: Job 361436: <blast_hits_extract> in cluster <prdclst> Done
+
+Job <blast_hits_extract> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <8*cpt129>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Mon May 22 11:19:34 2017
+Results reported at Mon May 22 11:20:12 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o blast_hits_extract.out
+#BSUB -e blast_hits_extract.err
+#BSUB -J blast_hits_extract
+#BSUB -n 8
+#BSUB -R "span[ptile=8]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
+
+	for file in $(cat ./data/blast/$dir/list_files.txt); do
+		mkdir -p data/parsed_blast/$dir
+		python3 scripts/blast_hits_extract.py $file $dir 0.8 50 0.00001 0 
+
+	done
+done
+
+
+#input_file, bee_folder, threshold_alignment_length, threshold_ID, threshold_eval, threshold_biscore
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               15.59 sec.
+    Max Memory :             11.46 MB
+    Average Memory :         11.37 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               348 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <blast_hits_extract.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt172>
+Subject: Job 361441: <blast_hits_extract> in cluster <prdclst> Exited
+
+Job <blast_hits_extract> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <8*cpt172>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Mon May 22 11:33:58 2017
+Results reported at Mon May 22 11:34:07 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o blast_hits_extract.out
+#BSUB -e blast_hits_extract.err
+#BSUB -J blast_hits_extract
+#BSUB -n 8
+#BSUB -R "span[ptile=8]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
+
+	for file in $(cat ./data/blast/$dir/list_files.txt); do
+		mkdir -p data/parsed_blast/$dir
+		python3 scripts/blast_hits_extract.py $file $dir 0.8 50 0.00001 0 
+
+	done
+done
+
+
+#input_file, bee_folder, threshold_alignment_length, threshold_ID, threshold_eval, threshold_biscore
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :               3.05 sec.
+    Max Memory :             5.59 MB
+    Average Memory :         5.59 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               226 MB
+
+    Max Processes :          3
+    Max Threads :            4
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <blast_hits_extract.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt129>
+Subject: Job 361444: <blast_hits_extract> in cluster <prdclst> Exited
+
+Job <blast_hits_extract> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <8*cpt129>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Mon May 22 11:36:20 2017
+Results reported at Mon May 22 11:36:32 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o blast_hits_extract.out
+#BSUB -e blast_hits_extract.err
+#BSUB -J blast_hits_extract
+#BSUB -n 8
+#BSUB -R "span[ptile=8]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
+
+	for file in $(cat ./data/blast/$dir/list_files.txt); do
+		mkdir -p data/parsed_blast/$dir
+		python3 scripts/blast_hits_extract.py $file $dir 0.8 50 0.00001 0 
+
+	done
+done
+
+
+#input_file, bee_folder, threshold_alignment_length, threshold_ID, threshold_eval, threshold_biscore
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :               3.32 sec.
+    Max Memory :             11.07 MB
+    Average Memory :         11.07 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               348 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <blast_hits_extract.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt172>
+Subject: Job 361445: <blast_hits_extract> in cluster <prdclst> Done
+
+Job <blast_hits_extract> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <8*cpt172>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Mon May 22 11:37:51 2017
+Results reported at Mon May 22 11:38:33 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o blast_hits_extract.out
+#BSUB -e blast_hits_extract.err
+#BSUB -J blast_hits_extract
+#BSUB -n 8
+#BSUB -R "span[ptile=8]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
+
+	for file in $(cat ./data/blast/$dir/list_files.txt); do
+		mkdir -p data/parsed_blast/$dir
+		python3 scripts/blast_hits_extract.py $file $dir 0.8 50 0.00001 0 
+
+	done
+done
+
+
+#input_file, bee_folder, threshold_alignment_length, threshold_ID, threshold_eval, threshold_biscore
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               11.29 sec.
+    Max Memory :             11.22 MB
+    Average Memory :         11.16 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               348 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <blast_hits_extract.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt171>
+Subject: Job 361447: <blast_hits_extract> in cluster <prdclst> Done
+
+Job <blast_hits_extract> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <8*cpt171>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Mon May 22 11:40:49 2017
+Results reported at Mon May 22 11:41:36 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o blast_hits_extract.out
+#BSUB -e blast_hits_extract.err
+#BSUB -J blast_hits_extract
+#BSUB -n 8
+#BSUB -R "span[ptile=8]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
+
+	for file in $(cat ./data/blast/$dir/list_files.txt); do
+		mkdir -p data/parsed_blast/$dir
+		python3 scripts/blast_hits_extract.py $file $dir 0.8 50 0.00001 0 
+
+	done
+done
+
+
+#input_file, bee_folder, threshold_alignment_length, threshold_ID, threshold_eval, threshold_biscore
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               11.06 sec.
+    Max Memory :             11.24 MB
+    Average Memory :         11.23 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               349 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <blast_hits_extract.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt171>
+Subject: Job 361448: <blast_hits_extract> in cluster <prdclst> Done
+
+Job <blast_hits_extract> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <8*cpt171>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Mon May 22 11:45:25 2017
+Results reported at Mon May 22 11:46:00 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o blast_hits_extract.out
+#BSUB -e blast_hits_extract.err
+#BSUB -J blast_hits_extract
+#BSUB -n 8
+#BSUB -R "span[ptile=8]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
+
+	for file in $(cat ./data/blast/$dir/list_files.txt); do
+		mkdir -p data/parsed_blast/$dir
+		python3 scripts/blast_hits_extract.py $file $dir 0.8 50 0.00001 0 
+
+	done
+done
+
+
+#input_file, bee_folder, threshold_alignment_length, threshold_ID, threshold_eval, threshold_biscore
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               11.76 sec.
+    Max Memory :             11.23 MB
+    Average Memory :         11.22 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               348 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <blast_hits_extract.err> for stderr output of this job.
+
