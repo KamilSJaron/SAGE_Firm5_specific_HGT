@@ -8,8 +8,8 @@ Script which filter the different hits from the blast output in function of diff
 """
 import sys, os
 
-input_file = sys.argv[1]
-bee_folder = sys.argv[2]
+input_file = str(sys.argv[1])
+bee_folder = str(sys.argv[2])
 threshold_alignment_length = sys.argv[3]
 threshold_ID = sys.argv[4]
 threshold_eval = sys.argv[5]
@@ -18,8 +18,8 @@ threshold_bitscore = sys.argv[6]
 def parsed_blast_hits(input_file, bee_folder, threshold_alignment_length, threshold_ID, threshold_eval, threshold_bitscore):
     
     if input_file != 'list_files.txt': 
-        bee_file = open('data/blast/' + str(bee_folder) + '/' + str(input_file), 'r')
-        bee_file_out = open('data/parsed_blast/' + str(bee_folder) +'/' + str(input_file.split('.out')[0]) + '_parsed.out','w')
+        bee_file = open('data/blast/' + bee_folder + '/' + input_file, 'r')
+        bee_file_out = open('data/parsed_blast/' + bee_folder +'/' + input_file.split('.out')[0] + '_parsed.out','w')
         bee_file_out.write('# Query_ID\tSubject_titles\t%_Identity\tAlignment_length\tevalue\tbit_score\n')
         bee_file_list = []
         threshold_ID_tmp = float(threshold_ID)
