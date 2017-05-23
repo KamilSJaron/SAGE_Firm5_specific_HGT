@@ -43,15 +43,10 @@ for (gene_fam in 1:length(bumble_files)){
     prd = data.frame(xvals = seq(from = 1, to = 10, length.out = 100))
     prd$predicted = predict(fit, newdata = prd)
     
-    plot(for_model$xvals, for_model$yvals,main = paste0(strsplit(bee_dir[3], './/',fixed=T)[[1]][2], '\n',
-<<<<<<< HEAD
+    plot(for_model$xvals, for_model$yvals,main = paste0(strsplit(bee_dir[2], './/',fixed=T)[[1]][2], '\n',
                                                         strsplit(bumble_files[gene_fam],'_parsed')[[1]][1]),
                                                         ylab='similarity [%]', xlab='taxonomical distance [-]')
-=======
-                                                        strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),
-                                                        ylab='similarity [%]', xlab='taxonomical distance [-]', xlim=range(1:7))
->>>>>>> 101e8d3790c8469e63fe2bd7e1eb68280d0d1027
-    
+
     if(class(try(abline(fit2),TRUE)) != 'try-error'){
       lines(prd$xvals, prd$predicted)
       abline(fit2)
@@ -93,15 +88,10 @@ for (gene_fam in 1:length(honey_files)){
     prd = data.frame(xvals = seq(from = 1, to = 10, length.out = 100))
     prd$predicted = predict(fit, newdata = prd)
     
-    plot(for_model$xvals, for_model$yvals,main = paste0(strsplit(bee_dir[3],'.//',fixed = T)[[1]][2],
-<<<<<<< HEAD
+    plot(for_model$xvals, for_model$yvals,main = paste0(strsplit(bee_dir[4],'.//',fixed = T)[[1]][2],
                                                         '\n',strsplit(honey_files[gene_fam],'_parsed')[[1]][1]),
                                                         ylab = 'similarity [%]', xlab = 'taxonomical distance [-]')
-=======
-                                                        '\n',strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),
-                                                        ylab = 'similarity [%]', xlab = 'taxonomical distance [-]', xlim=range(1:7))
->>>>>>> 101e8d3790c8469e63fe2bd7e1eb68280d0d1027
-    
+
     if(class(try(abline(fit2),TRUE)) != 'try-error'){
       lines(prd$xvals, prd$predicted)
       abline(fit2)
