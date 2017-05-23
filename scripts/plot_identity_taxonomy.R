@@ -45,7 +45,7 @@ for (gene_fam in 1:length(bumble_files)){
     
     plot(for_model$xvals, for_model$yvals,main = paste0(strsplit(bee_dir[2], './/',fixed=T)[[1]][2], '\n',
                                                         strsplit(bumble_files[gene_fam],'_parsed')[[1]][1]),
-                                                        ylab='similarity [%]', xlab='taxonomical distance [-]')
+                                                        ylab='similarity [%]', xlab='hierarchical taxonomy distance [-]')
 
     if(class(try(abline(fit2),TRUE)) != 'try-error'){
       lines(prd$xvals, prd$predicted)
@@ -57,7 +57,7 @@ for (gene_fam in 1:length(bumble_files)){
     tmp_pvalue = anova(fit, fit2)$Pr[2]
     
     if(all(is.na(tmp_pvalue) != TRUE, tmp_pvalue<0.05)){
-      potential_HGT[i] = bumble_files[gene_fam]
+      potential_HGT[i] = paste0(strsplit(bee_dir[2], './/', fixed=T)[[1]][2], '/', bumble_files[gene_fam])
       i = i+1
     }
   }
@@ -90,7 +90,7 @@ for (gene_fam in 1:length(honey_files)){
     
     plot(for_model$xvals, for_model$yvals,main = paste0(strsplit(bee_dir[4],'.//',fixed = T)[[1]][2],
                                                         '\n',strsplit(honey_files[gene_fam],'_parsed')[[1]][1]),
-                                                        ylab = 'similarity [%]', xlab = 'taxonomical distance [-]')
+                                                        ylab = 'similarity [%]', xlab = 'hierarchical taxonomy distance [-]')
 
     if(class(try(abline(fit2),TRUE)) != 'try-error'){
       lines(prd$xvals, prd$predicted)
@@ -100,7 +100,7 @@ for (gene_fam in 1:length(honey_files)){
     tmp_pvalue = anova(fit, fit2)$Pr[2]
     
     if(all(is.na(tmp_pvalue) != TRUE, tmp_pvalue < 0.05)){
-      potential_HGT[i] = honey_files[gene_fam]
+      potential_HGT[i] = paste0(strsplit(bee_dir[4], './/', fixed=T)[[1]][2], '/', honey_files[gene_fam])
       i = i+1
     }
   }
@@ -134,7 +134,7 @@ for (gene_fam in 1:length(bumble_honey_files)){
     
     plot(for_model$xvals, for_model$yvals, main = paste0(strsplit(bee_dir[3], './/', fixed = T)[[1]][2],
                                                          '\n', strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),
-                                                          ylab = 'similarity [%]', xlab = 'taxonomical distance [-]', xlim=range(1:7))
+                                                          ylab = 'similarity [%]', xlab = 'hierarchical taxonomy distance [-]', xlim=range(1:7))
     
     if(class(try(abline(fit2),TRUE)) != 'try-error'){
       lines(prd$xvals, prd$predicted)
@@ -144,7 +144,7 @@ for (gene_fam in 1:length(bumble_honey_files)){
     tmp_pvalue = anova(fit, fit2)$Pr[2]
     
     if(all(is.na(tmp_pvalue) != TRUE, tmp_pvalue < 0.05)){
-      potential_HGT[i] = bumble_honey_files[gene_fam]
+      potential_HGT[i] = paste0(strsplit(bee_dir[3], './/', fixed=T)[[1]][2], '/', bumble_honey_files[gene_fam])
       i = i+1
     }
   }

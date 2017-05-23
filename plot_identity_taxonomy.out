@@ -120,3 +120,529 @@ PS:
 
 Read file <plot_identity_taxonomy.err> for stderr output of this job.
 
+Sender: LSF System <lsfadmin@cpt181>
+Subject: Job 373063: <plot_identity_taxonomy> in cluster <prdclst> Done
+
+Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*cpt181>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT> was used as the working directory.
+Started at Tue May 23 14:10:05 2017
+Results reported at Tue May 23 14:13:22 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o plot_identity_taxonomy.out
+#BSUB -e plot_identity_taxonomy.err
+#BSUB -J plot_identity_taxonomy
+#BSUB -n 3
+#BSUB -R "span[ptile=3]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+module add R/3.3.2;
+
+Rscript scripts/plot_identity_taxonomy.R
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               187.80 sec.
+    Max Memory :             40.23 MB
+    Average Memory :         37.57 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               448 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+
+
+PS:
+
+Read file <plot_identity_taxonomy.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@dee-cpt06>
+Subject: Job 373136: <plot_identity_taxonomy> in cluster <prdclst> Exited
+
+Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*dee-cpt06>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Tue May 23 14:36:23 2017
+Results reported at Tue May 23 14:36:28 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o plot_identity_taxonomy.out
+#BSUB -e plot_identity_taxonomy.err
+#BSUB -J plot_identity_taxonomy
+#BSUB -n 3
+#BSUB -R "span[ptile=3]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+module add R/3.3.2;
+
+Rscript scripts/plot_identity_taxonomy.R
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :               3.03 sec.
+    Max Memory :             32.30 MB
+    Average Memory :         32.30 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               441 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <plot_identity_taxonomy.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt184>
+Subject: Job 373143: <plot_identity_taxonomy> in cluster <prdclst> Exited
+
+Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*cpt184>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Tue May 23 14:40:33 2017
+Results reported at Tue May 23 14:40:40 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o plot_identity_taxonomy.out
+#BSUB -e plot_identity_taxonomy.err
+#BSUB -J plot_identity_taxonomy
+#BSUB -n 3
+#BSUB -R "span[ptile=3]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+module add R/3.3.2;
+
+Rscript scripts/plot_identity_taxonomy.R
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :               4.83 sec.
+    Max Memory :             34.39 MB
+    Average Memory :         34.39 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               443 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <plot_identity_taxonomy.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt186>
+Subject: Job 373147: <plot_identity_taxonomy> in cluster <prdclst> Exited
+
+Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*cpt186>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Tue May 23 14:44:36 2017
+Results reported at Tue May 23 14:44:43 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o plot_identity_taxonomy.out
+#BSUB -e plot_identity_taxonomy.err
+#BSUB -J plot_identity_taxonomy
+#BSUB -n 3
+#BSUB -R "span[ptile=3]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+module add R/3.3.2;
+
+Rscript scripts/plot_identity_taxonomy.R
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :               4.89 sec.
+    Max Memory :             32.31 MB
+    Average Memory :         32.31 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               441 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <plot_identity_taxonomy.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt186>
+Subject: Job 373150: <plot_identity_taxonomy> in cluster <prdclst> Done
+
+Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*cpt186>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Tue May 23 14:48:05 2017
+Results reported at Tue May 23 14:51:15 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o plot_identity_taxonomy.out
+#BSUB -e plot_identity_taxonomy.err
+#BSUB -J plot_identity_taxonomy
+#BSUB -n 3
+#BSUB -R "span[ptile=3]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+module add R/3.3.2;
+
+Rscript scripts/plot_identity_taxonomy.R
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               181.35 sec.
+    Max Memory :             41.74 MB
+    Average Memory :         37.96 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               450 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+
+
+PS:
+
+Read file <plot_identity_taxonomy.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt171>
+Subject: Job 373178: <plot_identity_taxonomy> in cluster <prdclst> Done
+
+Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*cpt171>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Tue May 23 15:08:18 2017
+Results reported at Tue May 23 15:17:03 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o plot_identity_taxonomy.out
+#BSUB -e plot_identity_taxonomy.err
+#BSUB -J plot_identity_taxonomy
+#BSUB -n 3
+#BSUB -R "span[ptile=3]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+module add R/3.3.2;
+
+Rscript scripts/plot_identity_taxonomy.R
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               228.41 sec.
+    Max Memory :             42.21 MB
+    Average Memory :         38.97 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               451 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+
+
+PS:
+
+Read file <plot_identity_taxonomy.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt182>
+Subject: Job 373582: <plot_identity_taxonomy> in cluster <prdclst> Done
+
+Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*cpt182>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT> was used as the working directory.
+Started at Tue May 23 15:38:34 2017
+Results reported at Tue May 23 15:41:48 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o plot_identity_taxonomy.out
+#BSUB -e plot_identity_taxonomy.err
+#BSUB -J plot_identity_taxonomy
+#BSUB -n 3
+#BSUB -R "span[ptile=3]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+module add R/3.3.2;
+
+Rscript scripts/plot_identity_taxonomy.R
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               186.77 sec.
+    Max Memory :             40.10 MB
+    Average Memory :         37.77 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               448 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+
+
+PS:
+
+Read file <plot_identity_taxonomy.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt183>
+Subject: Job 373630: <plot_identity_taxonomy> in cluster <prdclst> Exited
+
+Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*cpt183>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT> was used as the working directory.
+Started at Tue May 23 15:45:26 2017
+Results reported at Tue May 23 15:45:32 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o plot_identity_taxonomy.out
+#BSUB -e plot_identity_taxonomy.err
+#BSUB -J plot_identity_taxonomy
+#BSUB -n 3
+#BSUB -R "span[ptile=3]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+module add R/3.3.2;
+
+Rscript scripts/plot_identity_taxonomy.R
+
+------------------------------------------------------------
+
+TERM_OWNER: job killed by owner.
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :               4.34 sec.
+    Max Memory :             34.26 MB
+    Average Memory :         34.26 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               443 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <plot_identity_taxonomy.err> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@cpt184>
+Subject: Job 373629: <plot_identity_taxonomy> in cluster <prdclst> Done
+
+Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*cpt184>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT> was used as the working directory.
+Started at Tue May 23 15:44:21 2017
+Results reported at Tue May 23 15:47:29 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o plot_identity_taxonomy.out
+#BSUB -e plot_identity_taxonomy.err
+#BSUB -J plot_identity_taxonomy
+#BSUB -n 3
+#BSUB -R "span[ptile=3]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+module add R/3.3.2;
+
+Rscript scripts/plot_identity_taxonomy.R
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               181.10 sec.
+    Max Memory :             39.94 MB
+    Average Memory :         37.69 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               449 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+null device 
+          1 
+null device 
+          1 
+null device 
+          1 
+
+
+PS:
+
+Read file <plot_identity_taxonomy.err> for stderr output of this job.
+
