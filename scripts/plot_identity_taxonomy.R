@@ -44,8 +44,13 @@ for (gene_fam in 1:length(bumble_files)){
     prd$predicted = predict(fit, newdata = prd)
     
     plot(for_model$xvals, for_model$yvals,main = paste0(strsplit(bee_dir[3], './/',fixed=T)[[1]][2], '\n',
+<<<<<<< HEAD
                                                         strsplit(bumble_files[gene_fam],'_parsed')[[1]][1]),
                                                         ylab='similarity [%]', xlab='taxonomical distance [-]')
+=======
+                                                        strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),
+                                                        ylab='similarity [%]', xlab='taxonomical distance [-]', xlim=range(1:7))
+>>>>>>> 101e8d3790c8469e63fe2bd7e1eb68280d0d1027
     
     if(class(try(abline(fit2),TRUE)) != 'try-error'){
       lines(prd$xvals, prd$predicted)
@@ -89,8 +94,13 @@ for (gene_fam in 1:length(honey_files)){
     prd$predicted = predict(fit, newdata = prd)
     
     plot(for_model$xvals, for_model$yvals,main = paste0(strsplit(bee_dir[3],'.//',fixed = T)[[1]][2],
+<<<<<<< HEAD
                                                         '\n',strsplit(honey_files[gene_fam],'_parsed')[[1]][1]),
                                                         ylab = 'similarity [%]', xlab = 'taxonomical distance [-]')
+=======
+                                                        '\n',strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),
+                                                        ylab = 'similarity [%]', xlab = 'taxonomical distance [-]', xlim=range(1:7))
+>>>>>>> 101e8d3790c8469e63fe2bd7e1eb68280d0d1027
     
     if(class(try(abline(fit2),TRUE)) != 'try-error'){
       lines(prd$xvals, prd$predicted)
@@ -134,7 +144,7 @@ for (gene_fam in 1:length(bumble_honey_files)){
     
     plot(for_model$xvals, for_model$yvals, main = paste0(strsplit(bee_dir[3], './/', fixed = T)[[1]][2],
                                                          '\n', strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),
-                                                          ylab = 'similarity [%]', xlab = 'taxonomical distance [-]')
+                                                          ylab = 'similarity [%]', xlab = 'taxonomical distance [-]', xlim=range(1:7))
     
     if(class(try(abline(fit2),TRUE)) != 'try-error'){
       lines(prd$xvals, prd$predicted)

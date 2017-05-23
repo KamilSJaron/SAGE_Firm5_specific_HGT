@@ -52,7 +52,7 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 - inputs: in  `data/parsed_blast`: outputs of `blast_hits_extract.py` and `hierarchical_taxonomy.txt`
 - outputs: in `data/parsed_blast`: Bumble_taxo_plot.pdf, Honey_taxo_plot.pdf and Bumble_Honey_taxo_plot.pdf in addition to potential_HGT.txt
 - Each `.pdf` file contains all plots (percentage of identity between query and subject against hierachical taxonomy distance) of a bee group. 
-- potential_HGT.txt lists all files of gene family that are taken into account during plotting. 
+- potential_HGT.txt lists all files of gene family that contains orthologous genes that are potentially acquired by HGT. 
 
 ### SAGE_Firm5_specific_HGT
 
