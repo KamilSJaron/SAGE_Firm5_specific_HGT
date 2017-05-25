@@ -10,7 +10,6 @@
 #BSUB –R "rusage[mem=10000]"
 #BSUB -u virginie.ricci@unil.ch
 
-
 module add Phylogeny/raxml/8.2.9;
 
 
@@ -18,8 +17,8 @@ cd /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/a
 
 for dir_file in $(cat ../parsed_blast/list_files.txt); do
 	
-	INPUT=${dir_file%_parsed.out}.multifasta
-	OUTPUT=ML_wo_bootstrap_$(basename ${dir_file%_parsed.out})
+	INPUT=${dir_file%.out}.multifasta
+	OUTPUT=ML_wo_bootstrap_$(basename ${dir_file%.out})
 	
 	raxmlHPC -m PROTGAMMAGTR -p 12345 -s $INPUT -n $OUTPUT
 done

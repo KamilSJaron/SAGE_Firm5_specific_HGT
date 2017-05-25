@@ -21,8 +21,8 @@ done
 
 
 for dir_file in $(cat ./data/parsed_blast/list_files.txt); do
-	INPUT=./data/${dir_file%_parsed.out}.fasta
-	OUTPUT=./data/alignment_potential_HGT/${dir_file%_parsed.out}.multifasta
+	INPUT=./data/parsed_blast/amino_acid_seq_$(basename ${dir_file%.out}).fasta
+	OUTPUT=./data/alignment_potential_HGT/${dir_file%.out}.multifasta
 	#echo $INPUT $OUTPUT
 	mafft --auto $INPUT > $OUTPUT
 
