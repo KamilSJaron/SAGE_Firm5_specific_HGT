@@ -45,7 +45,7 @@ for (gene_fam in 1:length(bumble_files)){
     
     plot(for_model$xvals, for_model$yvals,main = paste0(strsplit(bee_dir[2], './/',fixed=T)[[1]][2], '\n',
                                                         strsplit(bumble_files[gene_fam],'_parsed')[[1]][1]),
-                                                        ylab='similarity [%]', xlab='hierarchical taxonomy distance [-]')
+                                                        ylab='similarity [%]', xlab='hierarchical taxonomy distance [-]', xlim=range(1:7))
 
     if(class(try(abline(fit2),TRUE)) != 'try-error'){
       lines(prd$xvals, prd$predicted)
@@ -90,7 +90,7 @@ for (gene_fam in 1:length(honey_files)){
     
     plot(for_model$xvals, for_model$yvals,main = paste0(strsplit(bee_dir[4],'.//',fixed = T)[[1]][2],
                                                         '\n',strsplit(honey_files[gene_fam],'_parsed')[[1]][1]),
-                                                        ylab = 'similarity [%]', xlab = 'hierarchical taxonomy distance [-]')
+                                                        ylab = 'similarity [%]', xlab = 'hierarchical taxonomy distance [-]', xlim=range(1:7))
 
     if(class(try(abline(fit2),TRUE)) != 'try-error'){
       lines(prd$xvals, prd$predicted)
