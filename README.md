@@ -54,6 +54,13 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 - Each `.pdf` file contains all plots (percentage of identity between query and subject against hierachical taxonomy distance) of a bee group. 
 - potential_HGT.txt lists all files of gene family that contains orthologous genes that are potentially acquired by HGT. 
 
+`extract_seq_blast_hits.py` (7):
+- inputs:
+- outputs:
+
+
+
+
 ### SAGE_Firm5_specific_HGT
 
 This folder contains all scripts (`.sh`) we created for data analysis - does not comprise bash scripts (`.sh`) which are used to `bsub` other scripts.
@@ -69,7 +76,13 @@ This folder contains all scripts (`.sh`) we created for data analysis - does not
 - outputs: in  `data/blast`: folders of Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins
 - Each output folder contains resulting blast files (`.out` format) - each file concerns blast results for every sequences of their corresponding gene family.
 
+`align_potential_HGT.sh` (8):
+- inputs:
+- outputs:
 
+`tree_wo_bootstrap.sh` (9):
+- inputs:
+- outputs: 
 
 ### test subfolder
 
