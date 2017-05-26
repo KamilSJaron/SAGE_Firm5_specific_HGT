@@ -1,0 +1,251 @@
+Sender: LSF System <lsfadmin@cpt160>
+Subject: Job 382180: <tree_wo_bootstrap> in cluster <prdclst> Done
+
+Job <tree_wo_bootstrap> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <24*cpt160>, in queue <dee-long>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Thu May 25 11:10:38 2017
+Results reported at Thu May 25 12:22:45 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o tree_wo_bootstrap.out
+#BSUB -e tree_wo_bootstrap.err
+#BSUB -J tree_wo_bootstrap
+#BSUB -n 24
+#BSUB -R "span[ptile=24]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+#BSUB -q dee-long
+
+module add Phylogeny/raxml/8.2.9;
+
+
+cd /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/
+
+for dir_file in $(cat ../parsed_blast/list_files.txt); do
+	
+	INPUT=${dir_file%.out}.multifasta
+	OUTPUT=ML_wo_bootstrap_$(basename ${dir_file%.out})
+	
+	raxmlHPC -m PROTGAMMAGTR -p 12345 -s $INPUT -n $OUTPUT
+done
+
+
+# -m : substitutionModel - amino acid substitution model: GTR
+# -p : Specify a random number seed for the parsimony inferences. This allows you to reproduce your results and will help me debug the program.
+# -s : input
+# -n : output
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               4328.29 sec.
+    Max Memory :             66.32 MB
+    Average Memory :         61.10 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               293 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 167 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 12.57%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 167
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: GTR
+Using empirical base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAGTR -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_1058_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1058_parsed 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.053 0.032 0.058 0.058 0.012 0.059 0.097 0.072 0.019 0.066 0.091 0.073 0.028 0.060 0.031 0.047 0.027 0.007 0.062 0.048 
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 151.572613 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_1058_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 7.393732 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_1058_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 1.660368 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_1058_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 0.945535 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_1058_parsed_Partition_No Name Provided
+
+Inference[0]: Time 265.936699 GAMMA-based likelihood -5113.253577, best rearrangement setting 5
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 0.063718 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_1058_parsed_Partition_No Name Provided
+
+Inference[0] final GAMMA-based Likelihood: -5113.189859 tree written to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_result.ML_wo_bootstrap_Gene_family_1058_parsed
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -5113.189859 .... 
+
+Final GAMMA-based Score of best tree -5113.189859
+
+Program execution info written to /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_info.ML_wo_bootstrap_Gene_family_1058_parsed
+Best-scoring ML tree written to: /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_bestTree.ML_wo_bootstrap_Gene_family_1058_parsed
+
+Overall execution time: 342.569392 secs or 0.095158 hours or 0.003965 days
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 1856 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 79.00%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 1856
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: GTR
+Using empirical base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAGTR -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_991_parsed.multifasta -n ML_wo_bootstrap_Gene_family_991_parsed 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.056 0.031 0.071 0.064 0.021 0.031 0.063 0.055 0.017 0.041 0.073 0.052 0.039 0.052 0.036 0.092 0.090 0.016 0.041 0.060 
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 538.555081 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 67.920951 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 9.654777 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 3.383433 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 1.142749 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 0.100716 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+Inference[0]: Time 3151.845694 GAMMA-based likelihood -38699.668124, best rearrangement setting 5
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 0.009720 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+Inference[0] final GAMMA-based Likelihood: -38699.658404 tree written to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_result.ML_wo_bootstrap_Gene_family_991_parsed
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -38699.658404 .... 
+
+Final GAMMA-based Score of best tree -38699.658404
+
+Program execution info written to /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_info.ML_wo_bootstrap_Gene_family_991_parsed
+Best-scoring ML tree written to: /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_bestTree.ML_wo_bootstrap_Gene_family_991_parsed
+
+Overall execution time: 3982.927447 secs or 1.106369 hours or 0.046099 days
+
+
+
+PS:
+
+Read file <tree_wo_bootstrap.err> for stderr output of this job.
+

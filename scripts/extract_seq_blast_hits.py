@@ -72,7 +72,7 @@ for HGT in list_HGT_dir_file:
 		dict_query_seq[query] = aa_seq
 		#print(HGT, '\n', query, '\t', aa_seq, '\n')
 
-	print(HGT, len(dict_strain_query.keys()), dict_strain_query)
+	print('\n\n', HGT, len(dict_strain_query.keys()), dict_strain_query)
 
 
 	random.seed(123)
@@ -81,21 +81,37 @@ for HGT in list_HGT_dir_file:
 	else: 
 		random_query_seq = random.sample(dict_query_seq.keys(), 50)
 
-	print('\n\nSELECTED', HGT, len(random_query_seq), random_query_seq, '\n\n')
+	print('\n\nSELECTED', HGT, len(random_query_seq), random_query_seq)
 
 
 	hierarchical_tax_f = open('hierarchical_taxonomy.txt', 'r')
 	
+	id_strain_dist=[]
+	for line in hierarchical_tax_f:
+		lline = line.split()
+		for i in random_query_seq: # ex: ['WP_037591107', 'WP_001083113', ...]
+			if i == lline[0]:
+				id_strain_dist.append(i + '_' + lline[2]) # ex: ['WP_037591107_3', 'WP_001083113_3', ...]
+
+	print('\n\nID_STRAIN_DIST', id_strain_dist)
+
 	id_strain_query=[]
-	for i in random_query_seq: # ex: ['WP_037591107', 'WP_001083113', ...]
+	for i in id_strain_dist: # ex: ['WP_037591107_3', 'WP_001083113_3', ...]
 		for obj in list(dict_strain_query.items()): # ex: ('Lactobacillus mali', ['WP_056991303', 'WP_003689228'])
-			if i in obj[1]: 
-				for line in hierarchical_tax_f:
-					lline = line.split('\t')
-					if lline[0] == i:
-						id_strain_query.append(obj[0].replace(' ', '_').replace('[','').replace(']', '') + '_' + i + '_' + lline[2]) # obj[0]: ex: 'Lactobacillus mali', i: ex: WP_056991303, lline[2]: hierarchical distance
-						# ex: Lactobacillus_mali_WP_056991303_3
-	print(id_strain_query)
+			if '_'.join(i.split('_')[:-1]) in obj[1]:
+				id_strain_query.append(obj[0].replace(' ', '_').replace('[','').replace(']', '') + '_' + i)
+
+	print('\n\nID_STRAIN_QUERY', id_strain_query)
+
+# 	id_strain_query=[]
+# 	for i in random_query_seq: # ex: ['WP_037591107', 'WP_001083113', ...]
+# 		for obj in list(dict_strain_query.items()): # ex: ('Lactobacillus mali', ['WP_056991303', 'WP_003689228'])
+# 			for line in hierarchical_tax_f:
+# 				lline = line.split()
+# 				if i in obj[1] and i == lline[0]:
+# 						id_strain_query.append(obj[0].replace(' ', '_').replace('[','').replace(']', '') + '_' + i + '_' + lline[2]) # obj[0]: ex: 'Lactobacillus mali', i: ex: WP_056991303, lline[2]: hierarchical distance
+# 						# ex: Lactobacillus_mali_WP_056991303_3
+	
 
 
 	sequences=[]
@@ -106,13 +122,9 @@ for HGT in list_HGT_dir_file:
 				sequences.append(record)
 
 
-# 	sequences=[]
-# 	for i in random_query_seq:
-# 		#print(HGT, '\n', i, '\t', dict_query_seq[i], '\n')
-# 			record = SeqRecord(Seq(dict_query_seq[i]), id = i, description='')
-# 			sequences.append(record)
-
-
 	SeqIO.write(sequences, 'amino_acid_seq_' + HGT_str.replace('.out', '.fasta').split('/')[1], 'fasta')
 		
 	
+
+potential_HGT_dir_file_f.close()
+hierarchical_tax_f.close()
