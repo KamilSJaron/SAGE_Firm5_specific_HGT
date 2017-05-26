@@ -249,3 +249,149 @@ PS:
 
 Read file <tree_wo_bootstrap.err> for stderr output of this job.
 
+Sender: LSF System <lsfadmin@cpt162>
+Subject: Job 385953: <tree_wo_bootstrap> in cluster <prdclst> Exited
+
+Job <tree_wo_bootstrap> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <24*cpt162>, in queue <dee-long>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT> was used as the working directory.
+Started at Fri May 26 14:59:42 2017
+Results reported at Fri May 26 15:31:32 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o tree_wo_bootstrap.out
+#BSUB -e tree_wo_bootstrap.err
+#BSUB -J tree_wo_bootstrap
+#BSUB -n 24
+#BSUB -R "span[ptile=24]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+#BSUB -q dee-long
+
+module add Phylogeny/raxml/8.2.9;
+
+
+cd /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/
+
+for dir_file in $(cat ../parsed_blast/list_files.txt); do
+	
+	INPUT=${dir_file%.out}.multifasta
+	OUTPUT=ML_wo_bootstrap_$(basename ${dir_file%.out})
+	
+	raxmlHPC -m PROTGAMMAGTR -p 12345 -s $INPUT -n $OUTPUT
+done
+
+
+# -m : substitutionModel - amino acid substitution model: GTR
+# -p : Specify a random number seed for the parsimony inferences. This allows you to reproduce your results and will help me debug the program.
+# -s : input
+# -n : output
+
+------------------------------------------------------------
+
+TERM_OWNER: job killed by owner.
+Exited with exit code 130.
+
+Resource usage summary:
+
+    CPU time :               1899.83 sec.
+    Max Memory :             74.66 MB
+    Average Memory :         73.25 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               302 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+ERROR: Taxon Name "Apis_florea_(little_honeybee)_XP_003693779_7" is invalid at position 12, it contains illegal character (
+Illegal characters in taxon-names are: tabulators, carriage returns, spaces, ":", ",", ")", "(", ";", "]", "[", "'" 
+Exiting
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 2144 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 83.06%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 2144
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: GTR
+Using empirical base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAGTR -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_991_parsed.multifasta -n ML_wo_bootstrap_Gene_family_991_parsed 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.058 0.030 0.065 0.064 0.023 0.036 0.063 0.057 0.020 0.042 0.068 0.058 0.038 0.050 0.039 0.084 0.081 0.018 0.039 0.065 
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 596.148970 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 61.051278 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 8.301205 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+
+Printed linked AA GTR matrix that achieved an overall improvement of 1.950198 log likelihood units for partition No Name Provided to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_proteinGTRmodel.ML_wo_bootstrap_Gene_family_991_parsed_Partition_No Name Provided
+
+
+
+PS:
+
+Read file <tree_wo_bootstrap.err> for stderr output of this job.
+
