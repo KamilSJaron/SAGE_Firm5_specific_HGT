@@ -1,0 +1,58 @@
+Sender: LSF System <lsfadmin@cpt129>
+Subject: Job 387318: <freq_percent_identity> in cluster <prdclst> Exited
+
+Job <freq_percent_identity> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*cpt129>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Sat May 27 13:33:29 2017
+Results reported at Sat May 27 13:33:31 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -L /bin/bash
+#BSUB -o freq_percent_identity.out
+#BSUB -e freq_percent_identity.err
+#BSUB -J freq_percent_identity
+#BSUB -n 3
+#BSUB -R "span[ptile=3]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+
+
+# python3 ./scripts/freq_percent_identity.py data/blast list_files.txt
+
+module add R/3.3.2;
+
+Rscript scripts/freq_percent_identity.R
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :               1.16 sec.
+    Max Memory :             32.20 MB
+    Average Memory :         32.20 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               441 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <freq_percent_identity.err> for stderr output of this job.
+
