@@ -11,8 +11,8 @@
 #BSUB -u virginie.ricci@unil.ch
 
 
-# python3 ./scripts/freq_percent_identity.py data/blast list_files.txt
+python3 ./scripts/freq_percent_identity.py data/blast list_files.txt
 
 module add R/3.3.2;
 
-Rscript scripts/freq_percent_identity.R
+Rscript ./scripts/freq_percent_identity.R

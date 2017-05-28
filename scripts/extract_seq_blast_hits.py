@@ -99,7 +99,7 @@ for HGT in list_HGT_dir_file:
 	for i in id_strain_dist: # ex: ['WP_037591107_3', 'WP_001083113_3', ...]
 		for obj in list(dict_strain_query.items()): # ex: ('Lactobacillus mali', ['WP_056991303', 'WP_003689228'])
 			if '_'.join(i.split('_')[:-1]) in obj[1]:
-				id_strain_query.append(obj[0].replace(' ', '_').replace('[','').replace(']', '') + '_' + i)
+				id_strain_query.append(obj[0].replace(' ', '_').replace('[','').replace(']', '').replace('(', '').replace(')', '') + '_' + i)
 
 	print('\n\nID_STRAIN_QUERY', id_strain_query)
 

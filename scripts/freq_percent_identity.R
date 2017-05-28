@@ -2,48 +2,13 @@
 
 # module add R/3.3.2
 
-setwd('/scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/blast')
+setwd('/scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT')
 
-bee_dir = list.dirs('./')
+Percent_ID_list <- read.table('Percent_ID_list.txt', header=FALSE)
 
-bumble_files = list.files(bee_dir[2])
-honey_files = list.files(bee_dir[4])
-bumble_honey_files = list.files(bee_dir[3])
-
-bumble_perc_identity = c()
-honey_perc_identity = c()
-bumble_honey_perc_identity = c()
-
-for (gene_fam in 1:length(bumble_files)){
-	tmp_file = try(read.table(paste0(bee_dir[2], '/', bumble_files[gene_fam]), sep = '\t', header=TRUE), TRUE)
-	if(class(tmp_file) != 'try-error'){
-
-		bumble_perc_identity = tmp_file[,3]
-
-	}
-}
-
-for (gene_fam in 1:length(honey_files)){
-	tmp_file = try(read.table(paste0(bee_dir[4], '/', honey_files[gene_fam]), sep = '\t', header=TRUE), TRUE)
-	if(class(tmp_file) != 'try-error'){
-
-		honey_perc_identity = tmp_file[,3]
-	}
-}
-
-for (gene_fam in 1:length(bumble_honey_files)){
-	tmp_file = try(read.table(paste0(bee_dir[3], '/', bumble_honey_files[gene_fam]), sep = '\t', header=TRUE), TRUE)
-	if(class(tmp_file) != 'try-error'){
-
-		bumble_honey_perc_identity = tmp_file[,3]
-	}
-}
-
-	
-all_perc_identity = cbind(bumble_perc_identity, honey_perc_identity, bumble_honey_perc_identity)
-
-Density = density(all_perc_identity)
+Density = density(Percent_ID_list[,1])
 
 pdf('Density_percent_identity_blast.pdf')
-plot(Density)
+plot(Density, main='Density plot of all percent identity of every blast hits', xlab='% identity')
+abline(v=50, col='red')
 dev.off()
