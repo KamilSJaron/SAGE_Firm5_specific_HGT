@@ -1,219 +1,12 @@
-Sender: LSF System <lsfadmin@cpt183>
-Subject: Job 382175: <align_potential_HGT> in cluster <prdclst> Done
-
-Job <align_potential_HGT> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
-Job was executed on host(s) <3*cpt183>, in queue <normal>, as user <vricci> in cluster <prdclst>.
-</home/vricci> was used as the home directory.
-</home/vricci/SAGE> was used as the working directory.
-Started at Thu May 25 11:04:22 2017
-Results reported at Thu May 25 11:05:01 2017
-
-Your job looked like:
-
-------------------------------------------------------------
-# LSBATCH: User input
-#!/bin/bash
-
-#BSUB -L /bin/bash
-#BSUB -o align_potential_HGT.out
-#BSUB -e align_potential_HGT.err
-#BSUB -J align_potential_HGT
-#BSUB -n 3
-#BSUB -R "span[ptile=3]"
-#BSUB -M 10000000
-#BSUB –R "rusage[mem=10000]"
-#BSUB -u virginie.ricci@unil.ch
-
-
-module add SequenceAnalysis/MultipleSequenceAlignment/mafft/7.305;
-
-cd /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/
-
-for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
-	mkdir -p ./data/alignment_potential_HGT/$dir
-done
-
-
-for dir_file in $(cat ./data/parsed_blast/list_files.txt); do
-	INPUT=./data/parsed_blast/amino_acid_seq_$(basename ${dir_file%.out}).fasta
-	OUTPUT=./data/alignment_potential_HGT/${dir_file%.out}.multifasta
-	#echo $INPUT $OUTPUT
-	mafft --auto $INPUT > $OUTPUT
-
-done
-
-------------------------------------------------------------
-
-Successfully completed.
-
-Resource usage summary:
-
-    CPU time :               37.89 sec.
-    Max Memory :             152.14 MB
-    Average Memory :         67.62 MB
-    Total Requested Memory : -
-    Delta Memory :           -
-    (Delta: the difference between total requested memory and actual max usage.)
-    Max Swap :               698 MB
-
-    Max Processes :          6
-    Max Threads :            7
-
-The output (if any) follows:
-
-
-
-PS:
-
-Read file <align_potential_HGT.err> for stderr output of this job.
-
-Sender: LSF System <lsfadmin@cpt129>
-Subject: Job 385896: <align_potential_HGT> in cluster <prdclst> Exited
-
-Job <align_potential_HGT> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
-Job was executed on host(s) <3*cpt129>, in queue <normal>, as user <vricci> in cluster <prdclst>.
-</home/vricci> was used as the home directory.
-</scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT> was used as the working directory.
-Started at Fri May 26 14:17:30 2017
-Results reported at Fri May 26 14:17:57 2017
-
-Your job looked like:
-
-------------------------------------------------------------
-# LSBATCH: User input
-#!/bin/bash
-
-#BSUB -L /bin/bash
-#BSUB -o align_potential_HGT.out
-#BSUB -e align_potential_HGT.err
-#BSUB -J align_potential_HGT
-#BSUB -n 3
-#BSUB -R "span[ptile=3]"
-#BSUB -M 10000000
-#BSUB –R "rusage[mem=10000]"
-#BSUB -u virginie.ricci@unil.ch
-
-
-module add SequenceAnalysis/MultipleSequenceAlignment/mafft/7.305;
-
-cd /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/
-
-for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
-	mkdir -p ./data/alignment_potential_HGT/$dir
-done
-
-
-for dir_file in $(cat ./data/parsed_blast/list_files.txt); do
-	INPUT=./data/parsed_blast/amino_acid_seq_$(basename ${dir_file%.out}).fasta
-	OUTPUT=./data/alignment_potential_HGT/${dir_file%.out}.multifasta
-	#echo $INPUT $OUTPUT
-	mafft --auto $INPUT > $OUTPUT
-
-done
-
-------------------------------------------------------------
-
-Exited with exit code 1.
-
-Resource usage summary:
-
-    CPU time :               22.95 sec.
-    Max Memory :             14.81 MB
-    Average Memory :         14.81 MB
-    Total Requested Memory : -
-    Delta Memory :           -
-    (Delta: the difference between total requested memory and actual max usage.)
-    Max Swap :               552 MB
-
-    Max Processes :          6
-    Max Threads :            7
-
-The output (if any) follows:
-
-
-
-PS:
-
-Read file <align_potential_HGT.err> for stderr output of this job.
-
-Sender: LSF System <lsfadmin@dee-cpt05>
-Subject: Job 385942: <align_potential_HGT> in cluster <prdclst> Done
-
-Job <align_potential_HGT> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
-Job was executed on host(s) <3*dee-cpt05>, in queue <normal>, as user <vricci> in cluster <prdclst>.
-</home/vricci> was used as the home directory.
-</scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT> was used as the working directory.
-Started at Fri May 26 14:40:26 2017
-Results reported at Fri May 26 14:42:26 2017
-
-Your job looked like:
-
-------------------------------------------------------------
-# LSBATCH: User input
-#!/bin/bash
-
-#BSUB -L /bin/bash
-#BSUB -o align_potential_HGT.out
-#BSUB -e align_potential_HGT.err
-#BSUB -J align_potential_HGT
-#BSUB -n 3
-#BSUB -R "span[ptile=3]"
-#BSUB -M 10000000
-#BSUB –R "rusage[mem=10000]"
-#BSUB -u virginie.ricci@unil.ch
-
-
-module add SequenceAnalysis/MultipleSequenceAlignment/mafft/7.305;
-
-cd /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/
-
-for dir in Bumble_bees_proteins Bumble_Honey_bees_proteins Honey_bees_proteins; do
-	mkdir -p ./data/alignment_potential_HGT/$dir
-done
-
-
-for dir_file in $(cat ./data/parsed_blast/list_files.txt); do
-	INPUT=./data/parsed_blast/amino_acid_seq_$(basename ${dir_file%.out}).fasta
-	OUTPUT=./data/alignment_potential_HGT/${dir_file%.out}.multifasta
-	#echo $INPUT $OUTPUT
-	mafft --auto $INPUT > $OUTPUT
-
-done
-
-------------------------------------------------------------
-
-Successfully completed.
-
-Resource usage summary:
-
-    CPU time :               117.72 sec.
-    Max Memory :             314.10 MB
-    Average Memory :         166.57 MB
-    Total Requested Memory : -
-    Delta Memory :           -
-    (Delta: the difference between total requested memory and actual max usage.)
-    Max Swap :               863 MB
-
-    Max Processes :          6
-    Max Threads :            7
-
-The output (if any) follows:
-
-
-
-PS:
-
-Read file <align_potential_HGT.err> for stderr output of this job.
-
 Sender: LSF System <lsfadmin@cpt133>
-Subject: Job 386039: <align_potential_HGT> in cluster <prdclst> Done
+Subject: Job 388794: <align_potential_HGT> in cluster <prdclst> Done
 
 Job <align_potential_HGT> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
 Job was executed on host(s) <3*cpt133>, in queue <normal>, as user <vricci> in cluster <prdclst>.
 </home/vricci> was used as the home directory.
 </home/vricci/SAGE> was used as the working directory.
-Started at Fri May 26 17:06:04 2017
-Results reported at Fri May 26 17:46:37 2017
+Started at Sun May 28 21:51:57 2017
+Results reported at Sun May 28 22:27:20 2017
 
 Your job looked like:
 
@@ -255,13 +48,13 @@ Successfully completed.
 
 Resource usage summary:
 
-    CPU time :               263.48 sec.
-    Max Memory :             172.91 MB
-    Average Memory :         122.13 MB
+    CPU time :               226.04 sec.
+    Max Memory :             154.82 MB
+    Average Memory :         125.47 MB
     Total Requested Memory : -
     Delta Memory :           -
     (Delta: the difference between total requested memory and actual max usage.)
-    Max Swap :               724 MB
+    Max Swap :               705 MB
 
     Max Processes :          6
     Max Threads :            7

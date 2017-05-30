@@ -1,4 +1,26 @@
 #!/bin/bash
+# -*- coding: utf-8 -*-
+"""
+Created on Thu May 23 2017
+
+@author: Claivaz & Ricci
+
+SCRIPT 8
+
+align_potential_HGT.sh aligns the sequence of every blast hits of selected 
+Gene_family_*_parsed.out (listed in list_files.txt) in its created folder of group of bees 
+(data/alignment_potential_HGT/Bumble_bees_proteins/, 
+data/alignment_potential_HGT/Honey_bees_proteins/, 
+data/alignment_potential_HGT/Bumble_Honey_bees_proteins/).
+
+Inputs: amino_acid_seq_Gene_family_*_parsed.fasta in data/parsed_blast
+
+Outputs: Gene_family_*_parsed.multifasta in its corresponding folder of group of bees 
+(data/alignment_potential_HGT/Bumble_bees_proteins/, 
+data/alignment_potential_HGT/Honey_bees_proteins/, 
+data/alignment_potential_HGT/Bumble_Honey_bees_proteins/) - each output file contains 
+aligned protein sequences of every blast hits of a selected gene family
+"""
 
 #BSUB -L /bin/bash
 #BSUB -o align_potential_HGT.out

@@ -1,8 +1,42 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue May  9 13:48:02 2017
+Created on Tue May 9 13:48:02 2017
 
 @author: Claivaz&Ricci
+
+SCRIPT 5
+
+From every parsed blast results of each reference_genome|protein_ID’s sequence (query) 
+present in each Gene_family_*_parsed.out files in each folder of group of bees 
+(data/parsed_blast/Bumble_bees_proteins/, data/parsed_blast/Honey_bees_proteins/, 
+data/parsed_blast/Bumble_Honey_bees_proteins/), extract_taxonomy_hierarchy.py first creates 
+a list of subject IDs (hit IDs, for example ‘WP_052726720’). Subsequently, thanks to 
+Entrez (from Bio package), the function extracts the hierarchical taxonomy of each subject IDs 
+(from protein database of NCBI, for example: 
+'Bacteria;Firmicutes;Bacilli;Lactobacillales;Lactobacillaceae;Lactobacillus'). 
+The example (‘WP_052726720’) is used as reference hierarchical taxonomy. Finally, the 
+function looks for the most recent taxa which is shared between each hierarchical taxonomy 
+of each subject IDs and the reference hierarchical taxonomy. Hierarchical taxonomy distance 
+are subjective:
+
+Lactobacillus = 1
+Lactobacillaceae = 2
+Lactobacillales = 3
+Bacilli = 4
+Firmicutes = 5
+Bacteria = 6
+None = 7 (which either corresponds to Archae or Eukaryota - contaminations)
+
+The function creates a summary file (hierarchical_taxonomy.txt) which is located 
+in data/parsed_blast/.
+
+Inputs: Gene_family_*_parsed.out of its corresponding folder of group of bees 
+(data/parsed_blast/Bumble_bees_proteins/, data/parsed_blast/Honey_bees_proteins/, 
+data/parsed_blast/Bumble_Honey_bees_proteins/) 
+
+Outputs: hierarchical_taxonomy.txt in data/parsed_blast/ - the first column corresponds to 
+the strain IDs, the second one corresponds to the hierarchical taxonomy and the third one 
+corresponds to the subjective hierarchical taxonomy distance
 """
 
 import os

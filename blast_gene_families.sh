@@ -1,5 +1,14 @@
 #!/bin/bash
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 20 2017
 
+@author: Claivaz & Ricci
+
+SCRIPT 3.1
+
+blast_gene_families.sh runs blastp command specifying queries and outputs. 
+"""
 
 bsub <<< """
 #BSUB -L /bin/bash

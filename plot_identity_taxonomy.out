@@ -1,69 +1,12 @@
-Sender: LSF System <lsfadmin@cpt172>
-Subject: Job 385865: <plot_identity_taxonomy> in cluster <prdclst> Exited
+Sender: LSF System <lsfadmin@cpt133>
+Subject: Job 393170: <plot_identity_taxonomy> in cluster <prdclst> Done
 
 Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
-Job was executed on host(s) <3*cpt172>, in queue <normal>, as user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <3*cpt133>, in queue <normal>, as user <vricci> in cluster <prdclst>.
 </home/vricci> was used as the home directory.
 </home/vricci/SAGE> was used as the working directory.
-Started at Fri May 26 13:43:45 2017
-Results reported at Fri May 26 13:44:04 2017
-
-Your job looked like:
-
-------------------------------------------------------------
-# LSBATCH: User input
-#!/bin/bash
-
-#BSUB -L /bin/bash
-#BSUB -o plot_identity_taxonomy.out
-#BSUB -e plot_identity_taxonomy.err
-#BSUB -J plot_identity_taxonomy
-#BSUB -n 3
-#BSUB -R "span[ptile=3]"
-#BSUB -M 10000000
-#BSUB –R "rusage[mem=10000]"
-#BSUB -u virginie.ricci@unil.ch
-
-module add R/3.3.2;
-
-Rscript scripts/plot_identity_taxonomy.R
-
-------------------------------------------------------------
-
-Exited with exit code 1.
-
-Resource usage summary:
-
-    CPU time :               10.54 sec.
-    Max Memory :             30.23 MB
-    Average Memory :         30.23 MB
-    Total Requested Memory : -
-    Delta Memory :           -
-    (Delta: the difference between total requested memory and actual max usage.)
-    Max Swap :               439 MB
-
-    Max Processes :          4
-    Max Threads :            5
-
-The output (if any) follows:
-
-null device 
-          1 
-
-
-PS:
-
-Read file <plot_identity_taxonomy.err> for stderr output of this job.
-
-Sender: LSF System <lsfadmin@cpt172>
-Subject: Job 385866: <plot_identity_taxonomy> in cluster <prdclst> Done
-
-Job <plot_identity_taxonomy> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
-Job was executed on host(s) <3*cpt172>, in queue <normal>, as user <vricci> in cluster <prdclst>.
-</home/vricci> was used as the home directory.
-</home/vricci/SAGE> was used as the working directory.
-Started at Fri May 26 13:49:16 2017
-Results reported at Fri May 26 13:55:04 2017
+Started at Tue May 30 16:26:07 2017
+Results reported at Tue May 30 16:34:07 2017
 
 Your job looked like:
 
@@ -91,13 +34,13 @@ Successfully completed.
 
 Resource usage summary:
 
-    CPU time :               239.16 sec.
-    Max Memory :             42.33 MB
-    Average Memory :         38.93 MB
+    CPU time :               260.80 sec.
+    Max Memory :             39.85 MB
+    Average Memory :         37.59 MB
     Total Requested Memory : -
     Delta Memory :           -
     (Delta: the difference between total requested memory and actual max usage.)
-    Max Swap :               450 MB
+    Max Swap :               449 MB
 
     Max Processes :          4
     Max Threads :            5

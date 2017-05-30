@@ -1,26 +1,48 @@
 #!/usr/bin/Rscript
+# -*- coding: utf-8 -*-
+#
+# Created on Tue May 17 2017
+#
+# @author: Claivaz&Ricci
+#
+# SCRIPT 6
+#
+# For every parsed blast results of each reference_genome|protein_ID’s sequence (query) 
+# present in each Gene_family_*_parsed.out files in each folder of group of bees 
+# (data/parsed_blast/Bumble_bees_proteins/, data/parsed_blast/Honey_bees_proteins/, 
+# data/parsed_blast/Bumble_Honey_bees_proteins/), plot_identity_taxonomy.R extracts its 
+# percentage of identity and its hierarchical taxonomy distance (in hierarchical_taxonomy.txt) 
+# and plot them against each other. Moreover, for each Gene_family_*_parsed.out, 
+# on one hand, we will perform linear regression model in addition to polynomial model and 
+# investigate if models differ. If they differ, it would mean that polynomial model is the 
+# best one and suggest potential horizontal gene transfer (ANOVA). 
 
+# Inputs: Gene_family_*_parsed.out of its corresponding folder of group of bees 
+# (data/parsed_blast/Bumble_bees_proteins/, data/parsed_blast/Honey_bees_proteins/, 
+# data/parsed_blast/Bumble_Honey_bees_proteins/) and hierarchical_taxonomy.txt in data/parsed_blast/
+# 
+# Outputs: Bumble_taxo_plot.pdf, Honey_taxo_plot.pdf, Bumble_Honey_taxo_plot.pdf and 
+# potential_HGT.txt in data/parsed_blast/ - each *.pdf file contains all plots of a given 
+# bee group - potential_HGT.txt contains a list of Gene_family_*_parsed.out that are 
+# orthologous genes potentially acquired by HGT
 
-# Claivaz, Ricci, 170516
-# This  script allows the plotting of the similarity amongst blast hit results in function of the hierarchical 
-# taxonomy distance.
-# Input: hierarchical_taxonomy.txt, bumble/honey/bumble&honey parsed blast
-# Output: plots and table containing potential HGT candidates (from the anova test between polynomial and linear model)
 
 
 setwd('/scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/parsed_blast')
 
-#Load hierarchical taxonomy and list all out files from parsed blast
+### loading hierarchical taxonomy and listing all out files from parsed blast
 taxo_hierarchical = read.table('hierarchical_taxonomy.txt', sep = '\t')
 bee_dir = list.dirs('./')
 bumble_files = list.files(bee_dir[2])
 honey_files = list.files(bee_dir[4])
 bumble_honey_files = list.files(bee_dir[3])
-#
+
+
 
 i = 1
-potential_HGT = c()
-#plot all files of bumble
+potential_HGT = c() # listing all potential HGT based on ANOVA test of linear and polynomial models
+
+### Bumble specific plots
 pdf('Bumble_taxo_plot.pdf')
 
 for (gene_fam in 1:length(bumble_files)){
@@ -47,10 +69,10 @@ for (gene_fam in 1:length(bumble_files)){
                                                         strsplit(bumble_files[gene_fam],'_parsed')[[1]][1]),
                                                         ylab='similarity [%]', xlab='hierarchical taxonomy distance [-]', xlim=range(1:7))
 
-    if(class(try(abline(fit2),TRUE)) != 'try-error'){
-      lines(prd$xvals, prd$predicted)
-      abline(fit2)
-    }
+#    if(class(try(abline(fit2),TRUE)) != 'try-error'){
+#      lines(prd$xvals, prd$predicted)
+#      abline(fit2)
+#    }
     
     
     
@@ -65,7 +87,9 @@ for (gene_fam in 1:length(bumble_files)){
 
 dev.off()
 
-#plot all files of honey
+
+
+### Honey specific plots
 pdf('Honey_taxo_plot.pdf')
 
 for (gene_fam in 1:length(honey_files)){
@@ -92,10 +116,10 @@ for (gene_fam in 1:length(honey_files)){
                                                         '\n',strsplit(honey_files[gene_fam],'_parsed')[[1]][1]),
                                                         ylab = 'similarity [%]', xlab = 'hierarchical taxonomy distance [-]', xlim=range(1:7))
 
-    if(class(try(abline(fit2),TRUE)) != 'try-error'){
-      lines(prd$xvals, prd$predicted)
-      abline(fit2)
-    }
+#    if(class(try(abline(fit2),TRUE)) != 'try-error'){
+#      lines(prd$xvals, prd$predicted)
+#      abline(fit2)
+#    }
     
     tmp_pvalue = anova(fit, fit2)$Pr[2]
     
@@ -108,7 +132,9 @@ for (gene_fam in 1:length(honey_files)){
 
 dev.off()
 
-#plot all files of bumble and honey
+
+
+### Bumble and Honey specific plots
 pdf('Bumble_Honey_taxo_plot.pdf')
 
 for (gene_fam in 1:length(bumble_honey_files)){
@@ -136,10 +162,10 @@ for (gene_fam in 1:length(bumble_honey_files)){
                                                          '\n', strsplit(bumble_honey_files[gene_fam],'_parsed')[[1]][1]),
                                                           ylab = 'similarity [%]', xlab = 'hierarchical taxonomy distance [-]', xlim=range(1:7))
     
-    if(class(try(abline(fit2),TRUE)) != 'try-error'){
-      lines(prd$xvals, prd$predicted)
-      abline(fit2)
-    }
+#    if(class(try(abline(fit2),TRUE)) != 'try-error'){
+#      lines(prd$xvals, prd$predicted)
+#      abline(fit2)
+#    }
     
     tmp_pvalue = anova(fit, fit2)$Pr[2]
     

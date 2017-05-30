@@ -1,4 +1,34 @@
 #!/bin/python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue May 23 2017
+
+@author: Claivaz&Ricci
+
+SCRIPT 7
+
+
+Manually, we decide which gene families are good candidates to investigate if orthologous 
+genes are acquired by HGT. These gene family candidates are listed in list_files.txt 
+(in data/parsed_blast/). Gene_family_1058_parsed.out and Gene_family_991_parsed.out 
+(data/parsed_blast/Bumble_Honey_bees_proteins/) correspond to ‘confirmed’ HGT candidates. 
+Gene_family_1099_parsed.out (data/parsed_blast/Bumble_Honey_bees_proteins/) and 
+Gene_family_1674_parsed.out (data/parsed_blast/Bumble_bees_proteins/) correspond to 
+‘supposed’ HGT candidates. Gene_family_1048_parsed.out 
+(data/parsed_blast/Bumble_Honey_bees_proteins/) corresponds to non-HGT candidate. 
+
+extract_seq_blast_hits.py extracts the protein sequence of every blast hits of 
+selected Gene_family_*_parsed.out (listed in list_files.txt). 
+
+Inputs: list_files.txt in data/parsed_blast/, Gene_family_*_parsed.out of its corresponding 
+folder of group of bees (data/parsed_blast/Bumble_bees_proteins/, 
+data/parsed_blast/Honey_bees_proteins/, data/parsed_blast/Bumble_Honey_bees_proteins/) 
+listed in list_files.txt
+
+Outputs: amino_acid_seq_Gene_family_*_parsed.fasta in data/parsed_blast/ - each output file 
+contains protein sequences of every blast hits of a selected gene family. The ID name of 
+each sequence is defined as follows: StrainName_SujectID_HierarchicalTaxonomyDistance
+"""
 
 import sys, os
 
@@ -19,12 +49,12 @@ os.chdir('data/parsed_blast/')
 potential_HGT_dir_file_fn = 'list_files.txt'
 potential_HGT_dir_file_f = open(potential_HGT_dir_file_fn, 'r')
 
-list_HGT_dir_file=[] #ex: Bumble_Honey_bees_proteins/Gene_family_1058_parsed.out
+list_HGT_dir_file=[] # ex: Bumble_Honey_bees_proteins/Gene_family_1058_parsed.out
 for line in potential_HGT_dir_file_f:
 	list_HGT_dir_file.append(line.replace('\n',''))
 
 
-query_blast=[] #WP_****
+query_blast=[] # WP_****
 for HGT in list_HGT_dir_file:
 
 	HGT_str = str(HGT)
@@ -35,7 +65,7 @@ for HGT in list_HGT_dir_file:
 			lline = line.split()
 
 			if lline[1].split('|')[1] not in query_blast:
-				query_blast.append(lline[1].split('|')[1]) #WP_****
+				query_blast.append(lline[1].split('|')[1]) # WP_****
 
 	dict_query_seq = {} # query as keys and amino acid seq as values
 	dict_strain_query = {} # strain as keys and query as values
@@ -63,7 +93,7 @@ for HGT in list_HGT_dir_file:
 					dict_strain_query[strain_ID] = [query]
 
 
-		aa_seq_tmp_wo_digits=[] #remove remained digits in aa sequence
+		aa_seq_tmp_wo_digits=[] # remove remained digits in aa sequence
 		for s in aa_seq_tmp:
 			if not s.isdigit():
 				aa_seq_tmp_wo_digits.append(s)
