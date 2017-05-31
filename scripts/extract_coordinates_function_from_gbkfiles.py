@@ -33,6 +33,7 @@ genome_file = open(genebank_file, 'r')
 
 right_cds = False
 product_end = False
+in_cds = False
 
 for genome_file_line in genome_file:
         
@@ -42,16 +43,19 @@ for genome_file_line in genome_file:
               product.replace('\n', '').replace('\t', ''))
         break
     
-    
+    elif 'gene' in genome_file_line:
+        in_cds = False
     elif product_end and '\\' not in genome_file_line:
         product = product + genome_file_line
         product_end = False
     elif 'CDS' in genome_file_line:
+        in_cds = True
         product_found = False
         product_end = False
         coordinates = genome_file_line
-    elif protein_ID + '"' in genome_file_line:
-        right_cds = True
+    elif '|' + protein_ID + '"' in genome_file_line or '_' + protein_ID + '"' in genome_file_line:
+        if in_cds:
+            right_cds = True
     elif 'product' in genome_file_line:
         product = genome_file_line
         product_found = True
