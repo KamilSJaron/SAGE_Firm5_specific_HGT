@@ -58,7 +58,9 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 - inputs: in `data/parsed_blast`: `list_files.txt` : list of 2 'confirmed' potential HGT candidate gene family, 2 'suggestive' potential HGT candidate gene family and 1 non-candidate HGT gene family, outputs of `blast_hits_extract.py` in `data/parsed_blast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
 - outputs: in `data/parsed_blast`: `amino_acid_seq_Gene_family_*_parsed.fasta`
 
-
+`extract_coordinates_function_from_gbkfiles` (10):
+- inputs (see example present in the first lines of the script): python system argument: [1] `<PATH>/GeneFamilies.txt`, [2] `<PATH>/GeneBankFile`, [3] Name of the considered family, [4] Name of the strain in GeneBankFile
+- outputs: print in the therminal: the gene family, the strain, the protein ID, the coordinates of the gene, the function of the gene.
 
 
 ### SAGE_Firm5_specific_HGT
