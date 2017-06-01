@@ -23,21 +23,21 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 
 
 `proteinseqextract.py` (2):
-- inputs: outputs of `subgroup_sort.py` in `data/sort_group` (`Bumble_bees.txt`, `Honey_bees.txt`, `Bumble_Honey_bees.txt` or `Outgroup.txt`), `all_proteins.fasta` (of `mls_2016/blast` folder)
-- outputs: in `data`: folders of Bumble_bees_proteins, Honey_bees_proteins, Bumble_Honey_bees_proteins
+- inputs: outputs of `subgroup_sort.py` in `data/sort_group/` (`Bumble_bees.txt`, `Honey_bees.txt`, `Bumble_Honey_bees.txt` or `Outgroup.txt`), `all_proteins.fasta` (in `mls_2016/blast/`)
+- outputs: in `data/`: folders of Bumble_bees_proteins, Honey_bees_proteins, Bumble_Honey_bees_proteins
 - Each output folder contains `.fasta` files of gene families - a file concerns one gene family and contains all reference_genome|protein_ID and their sequence in fasta format.
 
 
 `blast_hits_extract.py` (4):
 - inputs: outputs of `blast_gene_families.sh` in `data/blast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
-- outputs: in  `data/parsed_blast`: folders of Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins
+- outputs: in  `data/parsed_blast/`: folders of Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins
 - Each output folder contains parsed resulting blast files (`_parsed.out` format) - each file concerns parsed blast results for every sequences of their corresponding gene family.
 - The header of each `_parsed.out` files is: Query_ID, Subject_titles, %_Identity, Alignment_length, evalue, bit_score
 
 
 `extract_taxonomy_hierarchy.py` (5):
-- inputs: outputs of `blast_hits_extract.py` in `data/parsed_blast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
-- outputs: in  `data/parsed_blast`: `hierarchical_taxonomy.txt`: list of strain IDs and their corresponding hierarchical taxonomy and subjective hierarchical taxonomy distance (as followed)
+- inputs: outputs of `blast_hits_extract.py` in `data/parsed_blast/` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
+- outputs: in  `data/parsed_blast/`: `hierarchical_taxonomy.txt`: list of strain IDs and their corresponding hierarchical taxonomy and subjective hierarchical taxonomy distance (as followed)
 - Lactobacillus = 1
 - Lactobacillaceae = 2
 - Lactobacillales = 3
@@ -48,24 +48,24 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 
 
 `plot_identity_taxonomy.R` (6):
-- inputs: in  `data/parsed_blast`: outputs of `blast_hits_extract.py` and `hierarchical_taxonomy.txt`
-- outputs: in `data/parsed_blast`: `Bumble_taxo_plot.pdf`, `Honey_taxo_plot.pdf` and `Bumble_Honey_taxo_plot.pdf` in addition to `potential_HGT.txt`
+- inputs: in  `data/parsed_blast/`: outputs of `blast_hits_extract.py` and `hierarchical_taxonomy.txt`
+- outputs: in `data/parsed_blast/`: `Bumble_taxo_plot.pdf`, `Honey_taxo_plot.pdf` and `Bumble_Honey_taxo_plot.pdf` in addition to `potential_HGT.txt`
 - Each `.pdf` file contains all plots (percentage of identity between query and subject against hierachical taxonomy distance) of a bee group. 
 - potential_HGT.txt lists all files of gene family that contains orthologous genes that are potentially acquired by HGT. 
 
 
 `extract_seq_blast_hits.py` (7):
-- inputs: in `data/parsed_blast`: `list_files_HGT_to_trees.txt` : list of 'confirmed' potential HGT candidate gene family, 'suggestive' potential HGT candidate gene family and non-candidate HGT gene family, outputs of `blast_hits_extract.py` in `data/parsed_blast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
+- inputs: in `data/parsed_blast/`: `list_files_HGT_to_trees.txt` : list of 'confirmed' potential HGT candidate gene family, 'suggestive' potential HGT candidate gene family and non-candidate HGT gene family, outputs of `blast_hits_extract.py` in `data/parsed_blast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
 - outputs: in `data/alignment_potential_HGT/protein_seq`: `amino_acid_seq_Gene_family_*_parsed.fasta`
 
 
 `extract_coordinates_function_from_gbkfiles` (10):
 - inputs (see example present in the first lines of the script): python system argument: [1] `<PATH>/GeneFamilies.txt`, [2] `<PATH>/GeneBankFile`, [3] Name of the considered family, [4] Name of the strain in GeneBankFile
-- outputs: print in the terminal: the gene family, the strain, the protein ID, the coordinates of the gene, the function of the gene.
+- outputs: print `logs/`in the terminal: the gene family, the strain, the protein ID, the coordinates of the gene, the function of the gene.
 
 
 `freq_percent_identity.py` (extra):
-- inputs: outputs of `blast_gene_families.sh` and `function_blast.sh` in `data/blast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
+- inputs: outputs of `blast_gene_families.sh` and `function_blast.sh` in `data/blast/` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
 - output: `Percent_ID_list.txt` in `data/blast/`
 
 
@@ -86,20 +86,19 @@ This folder contains all scripts (`.sh`) we created for data analysis - does not
 - Each output contains 14 columns: query id, subject id, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score, subject title, subject titles
 
 `function_blast.sh` (3.2):
-- inputs: outputs of `proteinseqextract.py`in `data` subfolders (Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins) - each `.fasta` file corresponds to a gene family and contains all orthologous reference_genome|protein_ID and their sequence
+- inputs: outputs of `proteinseqextract.py`in `data/` subfolders (Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins) - each `.fasta` file corresponds to a gene family and contains all orthologous reference_genome|protein_ID and their sequence
 - outputs: in  `data/blast`: folders of Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins
 - Each output folder contains resulting blast files (`.out` format) - each file concerns blast results for every sequences of their corresponding gene family.
 
 
 `align_potential_HGT.sh` (8):
-- inputs: outputs of `extract_seq_blast_hits.py`: in `data/alignment_potential_HGT`: `amino_acid_seq_Gene_family_*_parsed.fasta`
-- outputs: `Gene_family_*_parsed.multifasta` in `data/alignment_potential_HGT` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
+- inputs: outputs of `extract_seq_blast_hits.py`: in `data/alignment_potential_HGT/`: `amino_acid_seq_Gene_family_*_parsed.fasta`
+- outputs: `Gene_family_*_parsed.multifasta` in `data/alignment_potential_HGT/` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
 
 
 `tree_wo_bootstrap.sh` (9):
-- inputs: outputs of `align_potential_HGT.sh: `Gene_family_*_parsed.multifasta` in `data/alignment_potential_HGT` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
+- inputs: outputs of `align_potential_HGT.sh: `Gene_family_*_parsed.multifasta` in `data/alignment_potential_HGT/` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
 - outputs: in `data/alignment_potential_HGT_RAxML_results`: `ML_wo_bootstrap_Gene_family_*_parsed.out`
-
 
 
 

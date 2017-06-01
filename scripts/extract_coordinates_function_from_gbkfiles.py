@@ -13,7 +13,7 @@ and the function present in genebank files for a specific gene family for a give
 These informations are printed in extract_coordinates_function_from_gbkfiles.out.
 
 python extract_coordinates_function_from_gbkfiles PATH/<ortho_table_file> PATH/<genebank_file> <genefamily_considered> <strain_considered>
-python extract_coordinates_function_from_gbkfiles.py ./GeneFamilies.txt ./F5_237.gbk Gene_family_1058 F237
+python extract_coordinates_function_from_gbkfiles.py data/GeneFamilies.txt ../../genome_files/F5_237.gbk Gene_family_1058 F237
 """
 
 ### assigning different input arguments to variables 
