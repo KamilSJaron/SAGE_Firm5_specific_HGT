@@ -3,7 +3,7 @@
 """
 Created on Tue May 2 14:10:31 2017
 
-@author: Claivaz&Ricci
+@author: Claivaz & Ricci
 
 SCRIPT 4
 

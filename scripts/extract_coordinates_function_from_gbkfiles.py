@@ -3,7 +3,7 @@
 """
 Created on Wed May 31 2017
 
-@author: Claivaz&Ricci
+@author: Claivaz & Ricci
 
 SCRIPT 10
 
@@ -11,6 +11,9 @@ SCRIPT 10
 extract_coordinates_function_from_gbkfiles.py extracts the coordinates (start and stop positions)
 and the function present in genebank files for a specific gene family for a given strain.
 These informations are printed in extract_coordinates_function_from_gbkfiles.out.
+
+python extract_coordinates_function_from_gbkfiles PATH/<ortho_table_file> PATH/<genebank_file> <genefamily_considered> <strain_considered>
+python extract_coordinates_function_from_gbkfiles.py ./GeneFamilies.txt ./F5_237.gbk Gene_family_1058 F237
 """
 
 ### assigning different input arguments to variables 

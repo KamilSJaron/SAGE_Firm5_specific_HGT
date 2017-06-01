@@ -3,13 +3,13 @@
 """
 Created on Tue May 23 2017
 
-@author: Claivaz&Ricci
+@author: Claivaz & Ricci
 
 SCRIPT 7
 
 
 Manually, we decide which gene families are good candidates to investigate if orthologous 
-genes are acquired by HGT. These gene family candidates are listed in list_files.txt 
+genes are acquired by HGT. These gene family candidates are listed in list_files_HGT_to_trees.txt 
 (in data/parsed_blast/). Gene_family_1058_parsed.out and Gene_family_991_parsed.out 
 (data/parsed_blast/Bumble_Honey_bees_proteins/) correspond to ‘confirmed’ HGT candidates. 
 Gene_family_1099_parsed.out (data/parsed_blast/Bumble_Honey_bees_proteins/) and 
@@ -18,14 +18,14 @@ Gene_family_1674_parsed.out (data/parsed_blast/Bumble_bees_proteins/) correspond
 (data/parsed_blast/Bumble_Honey_bees_proteins/) corresponds to non-HGT candidate. 
 
 extract_seq_blast_hits.py extracts the protein sequence of every blast hits of 
-selected Gene_family_*_parsed.out (listed in list_files.txt). 
+selected Gene_family_*_parsed.out (listed in list_files_HGT_to_trees.txt). 
 
-Inputs: list_files.txt in data/parsed_blast/, Gene_family_*_parsed.out of its corresponding 
+Inputs: list_files_HGT_to_trees.txt in data/parsed_blast/, Gene_family_*_parsed.out of its corresponding 
 folder of group of bees (data/parsed_blast/Bumble_bees_proteins/, 
 data/parsed_blast/Honey_bees_proteins/, data/parsed_blast/Bumble_Honey_bees_proteins/) 
-listed in list_files.txt
+listed in list_files_HGT_to_trees.txt
 
-Outputs: amino_acid_seq_Gene_family_*_parsed.fasta in data/parsed_blast/ - each output file 
+Outputs: amino_acid_seq_Gene_family_*_parsed.fasta in data/alignment_potential_HGT/protein_seq/ - each output file 
 contains protein sequences of every blast hits of a selected gene family. The ID name of 
 each sequence is defined as follows: StrainName_SujectID_HierarchicalTaxonomyDistance
 """
@@ -46,7 +46,7 @@ Entrez.email = 'virginie.ricci@unil.ch'
 os.chdir('data/parsed_blast/')
 
 
-potential_HGT_dir_file_fn = 'list_files.txt'
+potential_HGT_dir_file_fn = 'list_files_HGT_to_trees.txt'
 potential_HGT_dir_file_f = open(potential_HGT_dir_file_fn, 'r')
 
 list_HGT_dir_file=[] # ex: Bumble_Honey_bees_proteins/Gene_family_1058_parsed.out
@@ -152,7 +152,7 @@ for HGT in list_HGT_dir_file:
 				sequences.append(record)
 
 
-	SeqIO.write(sequences, 'amino_acid_seq_' + HGT_str.replace('.out', '.fasta').split('/')[1], 'fasta')
+	SeqIO.write(sequences, '' + 'amino_acid_seq_' + HGT_str.replace('.out', '.fasta').split('/')[1], 'fasta')
 		
 	
 

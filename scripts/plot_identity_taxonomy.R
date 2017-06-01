@@ -3,7 +3,7 @@
 #
 # Created on Tue May 17 2017
 #
-# @author: Claivaz&Ricci
+# @author: Claivaz & Ricci
 #
 # SCRIPT 6
 #
@@ -26,6 +26,7 @@
 # bee group - potential_HGT.txt contains a list of Gene_family_*_parsed.out that are 
 # orthologous genes potentially acquired by HGT
 
+# module add R/3.3.2
 
 
 setwd('/scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/parsed_blast')

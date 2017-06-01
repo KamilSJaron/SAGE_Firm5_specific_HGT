@@ -2,7 +2,7 @@
 """
 Created on Tue May 9 13:48:02 2017
 
-@author: Claivaz&Ricci
+@author: Claivaz & Ricci
 
 SCRIPT 5
 
