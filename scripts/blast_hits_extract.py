@@ -39,6 +39,8 @@ the ‘best’ blast hits for each reference_genome|protein_ID’s sequence - th
 ‘# Query_ID	Subject_titles	%_Identity	Alignment_length	evalue		bit_score’ 
 - for each ‘best’ hits, informations are stored in its corresponding column
 """
+
+# assigning the different input arguments to variables 
 import sys, os
 
 input_file = sys.argv[1]

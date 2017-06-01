@@ -1,18 +1,19 @@
+#!/bin/python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed May 31 13:21:41 2017
+Created on Wed May 31 2017
 
 @author: Claivaz&Ricci
 
-Script which extract the coordinates and the function present in genebank files for 
-a specific gene family for a given strain
-The script print the coordinates and the function and other features in the terminal
-Example:
-python extract_coordinates_function_from_gbkfiles PATH/<ortho_table_file> PATH/<genebank_file> <genefamily_considered> <strain_considered>
-python extract_coordinates_function_from_gbkfiles.py ./GeneFamilies.txt ./F5_237.gbk Gene_family_1058 F237
+SCRIPT 10
+
+
+extract_coordinates_function_from_gbkfiles.py extracts the coordinates (start and stop positions)
+and the function present in genebank files for a specific gene family for a given strain.
+These informations are printed in extract_coordinates_function_from_gbkfiles.out.
 """
 
-#Assign the different input arguments to variable 
+### assigning different input arguments to variables 
 import sys
 ortho_table_file = str(sys.argv[1])
 genebank_file = str(sys.argv[2])
@@ -21,14 +22,14 @@ strain_considered = str(sys.argv[4])
 
 ortho_table = open(ortho_table_file, 'r')
 
-#Extraction of the protein ID from the ortholog table
+### extracting protein ID from the ortholog table
 for ortho_table_line in ortho_table:
     if genefamily_considered in ortho_table_line:
         genefamily_data = ortho_table_line
 
 protein_ID = genefamily_data.split(strain_considered)[1].replace('|', '').split('\t')[0]
 
-#Extraction of the gene coordinates and gene function, then print them into terminal
+### extracting gene coordinates and gene function (printed in extract_coordinates_function_from_gbkfiles.out)
 genome_file = open(genebank_file, 'r')
 
 right_cds = False

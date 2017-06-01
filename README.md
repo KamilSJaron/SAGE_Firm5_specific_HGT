@@ -54,13 +54,15 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 - Each `.pdf` file contains all plots (percentage of identity between query and subject against hierachical taxonomy distance) of a bee group. 
 - potential_HGT.txt lists all files of gene family that contains orthologous genes that are potentially acquired by HGT. 
 
+
 `extract_seq_blast_hits.py` (7):
 - inputs: in `data/parsed_blast`: `list_files.txt` : list of 2 'confirmed' potential HGT candidate gene family, 2 'suggestive' potential HGT candidate gene family and 1 non-candidate HGT gene family, outputs of `blast_hits_extract.py` in `data/parsed_blast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
 - outputs: in `data/parsed_blast`: `amino_acid_seq_Gene_family_*_parsed.fasta`
 
+
 `extract_coordinates_function_from_gbkfiles` (10):
 - inputs (see example present in the first lines of the script): python system argument: [1] `<PATH>/GeneFamilies.txt`, [2] `<PATH>/GeneBankFile`, [3] Name of the considered family, [4] Name of the strain in GeneBankFile
-- outputs: print in the therminal: the gene family, the strain, the protein ID, the coordinates of the gene, the function of the gene.
+- outputs: print in the terminal: the gene family, the strain, the protein ID, the coordinates of the gene, the function of the gene.
 
 
 ### SAGE_Firm5_specific_HGT
@@ -78,9 +80,11 @@ This folder contains all scripts (`.sh`) we created for data analysis - does not
 - outputs: in  `data/blast`: folders of Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins
 - Each output folder contains resulting blast files (`.out` format) - each file concerns blast results for every sequences of their corresponding gene family.
 
+
 `align_potential_HGT.sh` (8):
 - inputs: outputs of `extract_seq_blast_hits.py`: in `data/parsed_blast`: `amino_acid_seq_Gene_family_*_parsed.fasta`
 - outputs: `Gene_family_*_parsed.multifasta` in `data/alignment_potential_HGT` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
+
 
 `tree_wo_bootstrap.sh` (9):
 - inputs: outputs of `align_potential_HGT.sh: `Gene_family_*_parsed.multifasta` in `data/alignment_potential_HGT` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
