@@ -1,5 +1,7 @@
 ## SAGE_Firm5_specific_HGT - GROUP 5 supervised by Kamil Jaron
 
+Documentation available at: https://docs.google.com/document/d/1Ra7nbsy-pfm-QwkwnQnWdMc1z7gNYEx7d0cHS_Ah0KM/edit?usp=sharing
+
 This folder is synchronized with our github repo : https://github.com/KamilSJaron/SAGE_Firm5_specific_HGT.git
 This repo is public.
 
