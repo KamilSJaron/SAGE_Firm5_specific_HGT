@@ -13,9 +13,10 @@ of all aligned protein sequences of every blast hits of selected Gene_family_*_p
 Inputs: Gene_family_*_parsed.multifasta in its corresponding folder of group of bees 
 (data/alignment_potential_HGT/Bumble_bees_proteins/, 
 data/alignment_potential_HGT/Honey_bees_proteins/, 
-data/alignment_potential_HGT/Bumble_Honey_bees_proteins/)
+data/alignment_potential_HGT/Bumble_Honey_bees_proteins/) listed in 
+list_files_HGT_to_trees.txt (data/parsed_blast)
 
-Outputs: ML_wo_bootstrap_Gene_family_*_parsed.out in data/alignment_potential_HGT/
+Outputs: ML_wo_bootstrap_Gene_family_*_parsed.out in data/alignment_potential_HGT/RAxML_results/
 
 >> RAxML_bestTree.ML_wo_bootstrap_Gene_family_*_parsed can then be opened using 
 FigTree tool (available at http://tree.bio.ed.ac.uk/software/figtree/)
@@ -36,7 +37,7 @@ module add Phylogeny/raxml/8.2.9;
 
 cd /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/
 
-for dir_file in $(cat ../parsed_blast/list_files.txt); do
+for dir_file in $(cat ../parsed_blast/list_files_HGT_to_trees.txt); do
 	
 	INPUT=${dir_file%.out}.multifasta
 	OUTPUT=ML_wo_bootstrap_$(basename ${dir_file%.out})
