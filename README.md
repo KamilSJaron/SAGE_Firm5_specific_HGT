@@ -1,5 +1,4 @@
-## SAGE_Firm5_specific_HGT
-## GROUP 5 supervised by Kamil Jaron
+## SAGE_Firm5_specific_HGT - GROUP 5 supervised by Kamil Jaron
 
 This folder is synchronized with our github repo : https://github.com/KamilSJaron/SAGE_Firm5_specific_HGT.git
 This repo is public.
@@ -12,7 +11,7 @@ In `SAGE_Firm5_specific_HGT`, there are bash scripts (`.sh`), which are used to 
 Each bash script has exactly the same name as its corresponding script in scripts folder.
 
 
-### scripts
+### scripts folder
 
 This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 
@@ -76,7 +75,7 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 
 
 
-### SAGE_Firm5_specific_HGT
+### SAGE_Firm5_specific_HGT (main folder)
 
 This folder contains all scripts (`.sh`) we created for data analysis - does not comprise bash scripts (`.sh`) which are used to `bsub` other scripts.
 
