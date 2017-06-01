@@ -71,8 +71,8 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 
 
 `freq_percent_identity.R` (extra):
-input: in `data/blast/`: output of `freq_percent_identity.py`
-output: `Density_percent_identity_blast.pdf` in `data/blast/`
+- input: in `data/blast/`: output of `freq_percent_identity.py`
+- output: `Density_percent_identity_blast.pdf` in `data/blast/`
 
 
 
