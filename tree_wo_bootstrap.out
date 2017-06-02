@@ -1,0 +1,877 @@
+Sender: LSF System <lsfadmin@cpt161>
+Subject: Job 402634: <tree_wo_bootstrap> in cluster <prdclst> Exited
+
+Job <tree_wo_bootstrap> was submitted from host <frt> by user <vricci> in cluster <prdclst>.
+Job was executed on host(s) <18*cpt161>, in queue <dee-long>, as user <vricci> in cluster <prdclst>.
+</home/vricci> was used as the home directory.
+</home/vricci/SAGE> was used as the working directory.
+Started at Thu Jun  1 18:54:59 2017
+Results reported at Fri Jun  2 02:58:02 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+"""
+Created on Thu May 23 2017
+
+@author: Claivaz & Ricci
+
+SCRIPT 9
+
+tree_wo_bootstrap.sh runs RAXML tool to infer phylogenetic trees (without bootstrapping) 
+of all aligned protein sequences of every blast hits of selected Gene_family_*_parsed.out  
+(in its bee folder in data/alignment_potential_HGT/). 
+
+Inputs: Gene_family_*_parsed.multifasta in its corresponding folder of group of bees 
+(data/alignment_potential_HGT/Bumble_bees_proteins/, 
+data/alignment_potential_HGT/Honey_bees_proteins/, 
+data/alignment_potential_HGT/Bumble_Honey_bees_proteins/) listed in 
+list_files_HGT_to_trees.txt (data/parsed_blast)
+
+Outputs: ML_wo_bootstrap_Gene_family_*_parsed.out in data/alignment_potential_HGT/RAxML_results/
+
+>> RAxML_bestTree.ML_wo_bootstrap_Gene_family_*_parsed can then be opened using 
+FigTree tool (available at http://tree.bio.ed.ac.uk/software/figtree/)
+"""
+
+#BSUB -L /bin/bash
+#BSUB -o tree_wo_bootstrap.out
+#BSUB -e tree_wo_bootstrap.err
+#BSUB -J tree_wo_bootstrap
+#BSUB -n 18
+#BSUB -R "span[ptile=18]"
+#BSUB -M 10000000
+#BSUB –R "rusage[mem=10000]"
+#BSUB -u virginie.ricci@unil.ch
+#BSUB -q dee-long
+
+module add Phylogeny/raxml/8.2.9;
+
+
+cd /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/
+
+mkdir -p RAxML_results
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_1058_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1058_parsed.out
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_991_parsed.multifasta -n ML_wo_bootstrap_Gene_family_991_parsed.out
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_1099_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1099_parsed.out
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_1048_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1048_parsed.out
+
+
+(... more ...)
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :               29017.08 sec.
+    Max Memory :             79.43 MB
+    Average Memory :         57.74 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               307 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 447 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 75.43%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 447
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: AUTO
+Using fixed base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_1058_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1058_parsed.out 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.087 0.044 0.039 0.057 0.019 0.037 0.058 0.083 0.024 0.048 0.086 0.062 0.020 0.038 0.046 0.070 0.061 0.014 0.035 0.071 
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -9891.608024 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -9887.308024 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -9850.471389 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -9844.556843 with empirical base frequencies
+
+
+Inference[0]: Time 952.397716 GAMMA-based likelihood -9844.541941, best rearrangement setting 10
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -9844.541946 with empirical base frequencies
+
+
+Inference[0] final GAMMA-based Likelihood: -9844.541370 tree written to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_result.ML_wo_bootstrap_Gene_family_1058_parsed.out
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -9844.541370 .... 
+
+Final GAMMA-based Score of best tree -9844.541370
+
+Program execution info written to /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_info.ML_wo_bootstrap_Gene_family_1058_parsed.out
+Best-scoring ML tree written to: /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_bestTree.ML_wo_bootstrap_Gene_family_1058_parsed.out
+
+Overall execution time: 1220.512071 secs or 0.339031 hours or 0.014126 days
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 2086 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 77.34%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 2086
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: AUTO
+Using fixed base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_991_parsed.multifasta -n ML_wo_bootstrap_Gene_family_991_parsed.out 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.087 0.044 0.039 0.057 0.019 0.037 0.058 0.083 0.024 0.048 0.086 0.062 0.020 0.038 0.046 0.070 0.061 0.014 0.035 0.071 
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -49298.828836 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -49217.728401 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -49206.133735 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -49177.762401 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -49155.079419 with empirical base frequencies
+
+
+Inference[0]: Time 4879.418601 GAMMA-based likelihood -49155.076877, best rearrangement setting 5
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -49155.077307 with empirical base frequencies
+
+
+Inference[0] final GAMMA-based Likelihood: -49155.076646 tree written to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_result.ML_wo_bootstrap_Gene_family_991_parsed.out
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -49155.076646 .... 
+
+Final GAMMA-based Score of best tree -49155.076646
+
+Program execution info written to /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_info.ML_wo_bootstrap_Gene_family_991_parsed.out
+Best-scoring ML tree written to: /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_bestTree.ML_wo_bootstrap_Gene_family_991_parsed.out
+
+Overall execution time: 6065.557660 secs or 1.684877 hours or 0.070203 days
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 1276 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 80.42%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 1276
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: AUTO
+Using fixed base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_1099_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1099_parsed.out 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.087 0.044 0.039 0.057 0.019 0.037 0.058 0.083 0.024 0.048 0.086 0.062 0.020 0.038 0.046 0.070 0.061 0.014 0.035 0.071 
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -33494.261119 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -33432.291757 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -33398.736750 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -33390.888726 with empirical base frequencies
+
+
+Inference[0]: Time 2379.526473 GAMMA-based likelihood -33390.766192, best rearrangement setting 5
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -33390.766673 with empirical base frequencies
+
+
+Inference[0] final GAMMA-based Likelihood: -33390.760554 tree written to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_result.ML_wo_bootstrap_Gene_family_1099_parsed.out
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -33390.760554 .... 
+
+Final GAMMA-based Score of best tree -33390.760554
+
+Program execution info written to /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_info.ML_wo_bootstrap_Gene_family_1099_parsed.out
+Best-scoring ML tree written to: /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_bestTree.ML_wo_bootstrap_Gene_family_1099_parsed.out
+
+Overall execution time: 3206.744210 secs or 0.890762 hours or 0.037115 days
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 1104 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 74.60%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 1104
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: AUTO
+Using fixed base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_Honey_bees_proteins/Gene_family_1048_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1048_parsed.out 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.087 0.044 0.039 0.057 0.019 0.037 0.058 0.083 0.024 0.048 0.086 0.062 0.020 0.038 0.046 0.070 0.061 0.014 0.035 0.071 
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -33135.587424 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -33098.529171 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -33057.094235 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -33044.507352 with empirical base frequencies
+
+
+Inference[0]: Time 2212.662657 GAMMA-based likelihood -33044.502724, best rearrangement setting 5
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -33044.503368 with empirical base frequencies
+
+
+Inference[0] final GAMMA-based Likelihood: -33044.502419 tree written to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_result.ML_wo_bootstrap_Gene_family_1048_parsed.out
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -33044.502419 .... 
+
+Final GAMMA-based Score of best tree -33044.502419
+
+Program execution info written to /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_info.ML_wo_bootstrap_Gene_family_1048_parsed.out
+Best-scoring ML tree written to: /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_bestTree.ML_wo_bootstrap_Gene_family_1048_parsed.out
+
+Overall execution time: 3044.259961 secs or 0.845628 hours or 0.035234 days
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 1291 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 82.29%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 1291
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: AUTO
+Using fixed base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_bees_proteins/Gene_family_1674_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1674_parsed.out 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.087 0.044 0.039 0.057 0.019 0.037 0.058 0.083 0.024 0.048 0.086 0.062 0.020 0.038 0.046 0.070 0.061 0.014 0.035 0.071 
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -35154.507068 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -35099.744089 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -35068.992714 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -35054.033139 with empirical base frequencies
+
+
+Inference[0]: Time 2949.697184 GAMMA-based likelihood -35053.923219, best rearrangement setting 10
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -35053.923225 with empirical base frequencies
+
+
+Inference[0] final GAMMA-based Likelihood: -35053.915493 tree written to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_result.ML_wo_bootstrap_Gene_family_1674_parsed.out
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -35053.915493 .... 
+
+Final GAMMA-based Score of best tree -35053.915493
+
+Program execution info written to /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_info.ML_wo_bootstrap_Gene_family_1674_parsed.out
+Best-scoring ML tree written to: /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_bestTree.ML_wo_bootstrap_Gene_family_1674_parsed.out
+
+Overall execution time: 3812.907351 secs or 1.059141 hours or 0.044131 days
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 1721 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 87.38%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 1721
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: AUTO
+Using fixed base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_bees_proteins/Gene_family_1675_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1675_parsed.out 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.087 0.044 0.039 0.057 0.019 0.037 0.058 0.083 0.024 0.048 0.086 0.062 0.020 0.038 0.046 0.070 0.061 0.014 0.035 0.071 
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -41117.959388 with fixed base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -41072.449000 with fixed base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -41057.478417 with fixed base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -41002.096411 with fixed base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -40993.282291 with fixed base frequencies
+
+
+Inference[0]: Time 3954.255939 GAMMA-based likelihood -40993.197843, best rearrangement setting 5
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -40993.197963 with fixed base frequencies
+
+
+Inference[0] final GAMMA-based Likelihood: -40993.189596 tree written to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_result.ML_wo_bootstrap_Gene_family_1675_parsed.out
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -40993.189596 .... 
+
+Final GAMMA-based Score of best tree -40993.189596
+
+Program execution info written to /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_info.ML_wo_bootstrap_Gene_family_1675_parsed.out
+Best-scoring ML tree written to: /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_bestTree.ML_wo_bootstrap_Gene_family_1675_parsed.out
+
+Overall execution time: 5029.222106 secs or 1.397006 hours or 0.058209 days
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 1333 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 86.35%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 1333
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: AUTO
+Using fixed base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_bees_proteins/Gene_family_1678_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1678_parsed.out 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.087 0.044 0.039 0.057 0.019 0.037 0.058 0.083 0.024 0.048 0.086 0.062 0.020 0.038 0.046 0.070 0.061 0.014 0.035 0.071 
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -38566.986777 with fixed base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -38501.538203 with fixed base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -38451.337439 with fixed base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -38445.909571 with fixed base frequencies
+
+
+Inference[0]: Time 2395.923640 GAMMA-based likelihood -38445.837644, best rearrangement setting 5
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -38445.837644 with fixed base frequencies
+
+
+Inference[0] final GAMMA-based Likelihood: -38445.830899 tree written to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_result.ML_wo_bootstrap_Gene_family_1678_parsed.out
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -38445.830899 .... 
+
+Final GAMMA-based Score of best tree -38445.830899
+
+Program execution info written to /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_info.ML_wo_bootstrap_Gene_family_1678_parsed.out
+Best-scoring ML tree written to: /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_bestTree.ML_wo_bootstrap_Gene_family_1678_parsed.out
+
+Overall execution time: 3281.711440 secs or 0.911587 hours or 0.037983 days
+
+
+RAxML can't, parse the alignment file as phylip file 
+it will now try to parse it as FASTA file
+
+
+
+This is RAxML version 8.2.9 released by Alexandros Stamatakis on July 20 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 1069 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 81.63%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 1069
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: AUTO
+Using fixed base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC -m PROTGAMMAAUTO -p 12345 -s Bumble_bees_proteins/Gene_family_1757_parsed.multifasta -n ML_wo_bootstrap_Gene_family_1757_parsed.out 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.087 0.044 0.039 0.057 0.019 0.037 0.058 0.083 0.024 0.048 0.086 0.062 0.020 0.038 0.046 0.070 0.061 0.014 0.035 0.071 
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -32205.450392 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -32154.618533 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -32111.581336 with empirical base frequencies
+
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -32105.168248 with empirical base frequencies
+
+
+Inference[0]: Time 2526.593884 GAMMA-based likelihood -32105.155581, best rearrangement setting 5
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Automatic protein model assignment algorithm using ML criterion:
+
+	Partition: 0 best-scoring AA model: WAG likelihood -32105.155582 with empirical base frequencies
+
+
+Inference[0] final GAMMA-based Likelihood: -32105.154495 tree written to file /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_result.ML_wo_bootstrap_Gene_family_1757_parsed.out
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -32105.154495 .... 
+
+Final GAMMA-based Score of best tree -32105.154495
+
+Program execution info written to /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_info.ML_wo_bootstrap_Gene_family_1757_parsed.out
+Best-scoring ML tree written to: /scratch/beegfs/monthly/mls_2016/claivaz_ricci/SAGE_Firm5_specific_HGT/data/alignment_potential_HGT/RAxML_bestTree.ML_wo_bootstrap_Gene_family_1757_parsed.out
+
+Overall execution time: 3317.510189 secs or 0.921531 hours or 0.038397 days
+
+
+
+PS:
+
+Read file <tree_wo_bootstrap.err> for stderr output of this job.
+

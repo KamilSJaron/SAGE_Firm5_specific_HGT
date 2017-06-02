@@ -54,12 +54,13 @@ for line in potential_HGT_dir_file_f:
 	list_HGT_dir_file.append(line.replace('\n',''))
 
 
-orthologs=[] # ex: F225|1578.157.peg.1008
-query_blast=[] # WP_**** - blast hits
-for HGT in list_HGT_dir_file:
+
+for HGT in list_HGT_dir_file: # ex: Bumble_Honey_bees_proteins/Gene_family_1058_parsed.out
+	orthologs=[] # ex: F225|1578.157.peg.1008
+	query_blast=[] # WP_**** - blast hits
 
 	HGT_str = str(HGT)
-	parsed_blast_hits_f = open('./' + HGT_str, 'r')
+	parsed_blast_hits_f = open(HGT_str, 'r')
 
 	for line in parsed_blast_hits_f:
 		if '#' not in line:
@@ -74,7 +75,7 @@ for HGT in list_HGT_dir_file:
 	# extracting protein sequences of query
 	dict_query_seq = {} # query as keys and amino acid seq as values
 	dict_strain_query = {} # strain as keys and query as values
-	for query in set(query_blast):
+	for query in query_blast:
 		handle = Entrez.efetch(db="protein", id = query, rettype = "gb", retmode = "text")
 	
 		write_switch = False
@@ -92,8 +93,8 @@ for HGT in list_HGT_dir_file:
 			if re.match(r'^SOURCE', line_handle): # extract strain names, ex: Lactobacillus apis or Oceanobacillus sojae
 				strain_ID = line_handle.replace('SOURCE      ', '').replace('\n', '')
 				
-				if strain_ID in dict_strain_query.keys():
-					dict_strain_query[strain_ID].append(query)
+				if strain_ID in dict_strain_query.keys(): # strain_ID already as keys
+					dict_strain_query[strain_ID].append(query) # list of queries as values for a given key
 				else:
 					dict_strain_query[strain_ID] = [query]
 
@@ -152,15 +153,20 @@ for HGT in list_HGT_dir_file:
 
 
 	# extracting protein sequences of orthologs
+	dict_orthologs_seq = {} # orthologs as keys and amino acid seq as values
 	all_prot_f = '/scratch/beegfs/monthly/mls_2016/blast/all_proteins.fasta'
 	ref_protseq = {} # dico of ref_genome|protein_ID as keys and its amino acid sequence as values
 	for seq_record in SeqIO.parse(all_prot_f, 'fasta'):
 		ref_protseq[seq_record.id] = seq_record.seq
 
-	if len(ref_protseq.keys()) < 5:
-		random_ref_protseq = random.sample(ref_protseq.keys(), len(ref_protseq.keys()))
+	for ortho in orthologs:
+		if ortho in ref_protseq.keys():
+			dict_orthologs_seq[ortho] = ref_protseq[ortho]
+
+	if len(dict_orthologs_seq.keys()) < 5:
+		random_ref_protseq = random.sample(dict_orthologs_seq.keys(), len(dict_orthologs_seq.keys()))
 	else:
-		random_ref_protseq = random.sample(ref_protseq.keys(), 5)
+		random_ref_protseq = random.sample(dict_orthologs_seq.keys(), 5)
 
 	print('\n\nSELECTED_orthologs', len(random_ref_protseq), random_ref_protseq)
 
@@ -184,6 +190,7 @@ for HGT in list_HGT_dir_file:
 	SeqIO.write(sequences, '' + 'amino_acid_seq_' + HGT_str.replace('.out', '.fasta').split('/')[1], 'fasta')
 		
 	
+	parsed_blast_hits_f.close()
 
 potential_HGT_dir_file_f.close()
 hierarchical_tax_f.close()
