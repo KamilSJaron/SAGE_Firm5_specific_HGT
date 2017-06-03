@@ -13,4 +13,4 @@
 
 python3 ./scripts/extract_seq_blast_hits.py
 
-mv ./data/parsed_blast/amino_acid_seq_Gene_family_* ./data/alignment_potential_HGT/protein_seq/
+mv ./data/parsed_blast/amino_acid_seq_Gene_family_* ./data/phylogeny_potential_HGT/protein_seq/

@@ -8,9 +8,16 @@ Created on Wed May 31 2017
 SCRIPT 10
 
 
-extract_coordinates_function_from_gbkfiles.py extracts the coordinates (start and stop positions)
-and the function present in genebank files for a specific gene family for a given strain.
+Two reference genomes from Bumble bees group (F5_237 and F5_245) and one from Honey bees group (Lb_183) are analysed. 
+For each reference genome, we extract the protein name of every genes present in each Gene_family_* from 
+GeneFamilies.txt (in data). Thanks to GeneBank files (mls_2016/genome_files), we recover the coordinates and 
+the function of each protein. Then, we map the specific position of the protein onto its reference genome. 
 These informations are printed in extract_coordinates_function_from_gbkfiles.out.
+ 
+Input: GeneFamilies.txt in data, GeneBank files in mls_2016/genome_files
+
+Outputs: *.png files , *.tsv files and MappingIntoGenome.txt in data/IslandViewerResults
+
 
 python extract_coordinates_function_from_gbkfiles PATH/<ortho_table_file> PATH/<genebank_file> <genefamily_considered> <strain_considered>
 python extract_coordinates_function_from_gbkfiles.py data/GeneFamilies.txt ../../genome_files/F5_237.gbk Gene_family_1058 F237

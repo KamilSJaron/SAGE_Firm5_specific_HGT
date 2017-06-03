@@ -1,6 +1,7 @@
+#!/bin/python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue May 9 13:48:02 2017
+Created on Tue May 9 2017
 
 @author: Claivaz & Ricci
 

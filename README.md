@@ -34,7 +34,7 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 - inputs: outputs of `blast_gene_families.sh` in `data/blast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
 - outputs: in  `data/parsed_blast/`: folders of Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins
 - Each output folder contains parsed resulting blast files (`_parsed.out` format) - each file concerns parsed blast results for every sequences of their corresponding gene family.
-- The header of each `_parsed.out` files is: Query_ID, Subject_titles, %_Identity, Alignment_length, evalue, bit_score
+- The header of each `_parsed.out` files is: Query_ID, Subject_titles, %_Identity, phylogeny_length, evalue, bit_score
 
 
 `extract_taxonomy_hierarchy.py` (5):
@@ -58,7 +58,7 @@ This folder contains all scripts (`.py` and `.R`) we created for data analysis.
 
 `extract_seq_blast_hits.py` (7):
 - inputs: in `data/parsed_blast/`: `list_files_HGT_to_trees.txt` : list of 'confirmed' potential HGT candidate gene family, 'suggestive' potential HGT candidate gene family and non-candidate HGT gene family, outputs of `blast_hits_extract.py` in `data/parsed_blast` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
-- outputs: in `data/alignment_potential_HGT/protein_seq`: `amino_acid_seq_Gene_family_*_parsed.fasta`
+- outputs: in `data/phylogeny_potential_HGT/protein_seq`: `amino_acid_seq_Gene_family_*_parsed.fasta`
 
 
 `extract_coordinates_function_from_gbkfiles` (10):
@@ -94,13 +94,13 @@ This folder contains all scripts (`.sh`) we created for data analysis - does not
 
 
 `align_potential_HGT.sh` (8):
-- inputs: outputs of `extract_seq_blast_hits.py`: in `data/alignment_potential_HGT/`: `amino_acid_seq_Gene_family_*_parsed.fasta`
-- outputs: `Gene_family_*_parsed.multifasta` in `data/alignment_potential_HGT/` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
+- inputs: outputs of `extract_seq_blast_hits.py`: in `data/phylogeny_potential_HGT/`: `amino_acid_seq_Gene_family_*_parsed.fasta`
+- outputs: `Gene_family_*_parsed.multifasta` in `data/phylogeny_potential_HGT/` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
 
 
 `tree_wo_bootstrap.sh` (9):
-- inputs: outputs of `align_potential_HGT.sh: `Gene_family_*_parsed.multifasta` in `data/alignment_potential_HGT/` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
-- outputs: in `data/alignment_potential_HGT_RAxML_results`: `ML_wo_bootstrap_Gene_family_*_parsed.out`
+- inputs: outputs of `align_potential_HGT.sh: `Gene_family_*_parsed.multifasta` in `data/phylogeny_potential_HGT/` subfolders (Bumble_bees_proteins, Honey_bees_proteins and Bumble_Honey_bees_proteins)
+- outputs: in `data/phylogeny_potential_HGT_RAxML_results`: `ML_wo_bootstrap_Gene_family_*_parsed.out`
 
 
 
@@ -171,12 +171,12 @@ This folder contains also `Percent_ID_list.txt` of `freq_percent_identity.py` sc
 
 This folder contains subfolders: Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins
 Each subfolder contains `_parsed.out` output files of `blast_hits_extract.py` and `blast_hits_extract.sh` scripts.
-Each file corresponds to parsed blast results of one Gene_family (blast on protein sequences of all orthologous genes). It contains 6 columns summarizing blast hits and the taxonomic name of the strain (columns: Query_ID, Subject_titles, %_Identity, Alignment_length, evalue, bit_score).
+Each file corresponds to parsed blast results of one Gene_family (blast on protein sequences of all orthologous genes). It contains 6 columns summarizing blast hits and the taxonomic name of the strain (columns: Query_ID, Subject_titles, %_Identity, phylogeny_length, evalue, bit_score).
 This folder contains also `hierarchical_taxonomy.txt` of `extract_taxonomy_hierarchy.py' script, `potential_HGT.txt` and `_taxo_plot.pdf` of `plot_taxonomy_identity.R`.
 This folder contains alos `list_files_HGT_to_trees.txt` based on `potential_HGT.txt`. It selects potential HGT whose phylogenetic tree will be inferred. 
 
 
-### alignment_potential_HGT subfolder in data folder
+### phylogeny_potential_HGT subfolder in data folder
 
 This folder contains subfolders: Bumble_bees_proteins, Bumble_Honey_bees_proteins, Honey_bees_proteins
 Each subfolder contains `Gene_family_*_parsed.multifasta` output files of `align_potential_HGT.sh` script. 

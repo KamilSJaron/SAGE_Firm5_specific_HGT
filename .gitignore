@@ -6,7 +6,6 @@ data
 
 # Avoid PDF, PPT
 ################
-*.pdf
 *.pptx
 
 

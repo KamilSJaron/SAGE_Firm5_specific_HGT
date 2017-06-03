@@ -8,11 +8,11 @@ Created on Thu Apr 6 2017
 SCRIPT 1
 
 For each group of bees (Bumble_bees, Honey_bees, Bumble_Honey_bees, Outgroup), 
-subgroup_sort.py looks into each Gene_family_* (each line) of Genefamilies_all.txt. 
+subgroup_sort.py looks into each Gene_family_* (each line) of GeneFamilies.txt. 
 If a Gene_family_* contains at least 80% of all strains present in the group of bees, 
-it stores the Gene_family_* into its corresponding file. 
+it stores the Gene_family_* into its corresponding file (free from other strains including outgroup strains. 
 
-Input: Genefamilies_all.txt (in data/)
+Input: GeneFamilies.txt (in data/)
 
 Outputs: Bumble_bees.txt, Honey_bees.txt, Bumble_Honey_bees.txt and Outgroup.txt (in data/sort_group/)
 """
